@@ -213,6 +213,14 @@ strong{font-weight:700;color:var(--navy)}
 .pk li.p::before{background:var(--teal)}
 .pk .pre{font-size:15px;font-weight:600;color:var(--t2);margin:0 0 14px}
 
+/* ============ NO INCLUIDO ============ */
+.notinc{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.notinc div{display:flex;align-items:center;gap:16px;padding:16px 20px;border:1px solid var(--border);background:#fff}
+.notinc div:nth-child(even){background:var(--mist)}
+.notinc i{flex:0 0 auto;width:36px;height:36px;border-radius:50%;background:var(--mag);color:#fff;font-style:normal;font-family:var(--fd);font-weight:700;font-size:14px;display:grid;place-items:center}
+.notinc div.t i{background:var(--teal);color:#06342F}
+.notinc span{font-size:clamp(15px,1.25vw,18px);line-height:1.4;color:var(--navy)}
+
 /* ============ NECESITAMOS ============ */
 .need{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
 .need div{background:var(--navy2);border-left:4px solid var(--magl);padding:22px 24px}
@@ -229,17 +237,12 @@ strong{font-weight:700;color:var(--navy)}
 @media(max-width:900px){.steps > div{border-left:0;border-top:1px solid rgba(255,255,255,.2)}.steps > div:first-child{border-top:0}}
 
 /* ============ LOGO ============ */
-.logo{display:inline-flex;align-items:center;gap:1px;font-weight:800;letter-spacing:-.035em;line-height:1;white-space:nowrap}
-.logo .a{color:var(--navy)}.logo .b{color:var(--mag)}
-.logo svg{display:block;margin-left:.05em;margin-bottom:.07em;overflow:visible}
-.logo .ring{stroke:var(--navy)}.logo .bar{stroke:var(--mag)}
-.logo.lt .a{color:#fff}.logo.lt .b{color:var(--magl)}
-.logo.lt .ring{stroke:#fff}.logo.lt .bar{stroke:var(--magl)}
+.logo-img{display:inline-block;height:1em;width:auto;vertical-align:-.15em}
 
 /* ============ CRÉDITO DE PIE ============ */
 .credit{position:absolute;left:6vw;bottom:30px;display:flex;align-items:center;gap:14px;font-family:var(--fd);font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);z-index:2}
 .s.navy .credit{color:rgba(255,255,255,.42)}
-.credit .logo{font-size:17px}
+.credit .logo-img{height:22px}
 
 /* ============ CONTROLES ============ */
 .progress{position:fixed;top:0;left:0;height:4px;background:var(--mag);z-index:200;width:0;transition:width .18s ease}
@@ -287,7 +290,7 @@ strong{font-weight:700;color:var(--navy)}
     <h1>Su web puede<br>traerle clientes.<br><em>Hoy no lo hace.</em></h1>
     <p class="lede" style="font-size:clamp(20px,1.8vw,27px)">Hemos revisado las 24 páginas de jofemesa.com, una por una, con las mismas herramientas que usa Google. Esto es lo que hemos encontrado y lo que proponemos hacer.</p>
   </div>
-  <div class="credit"><span>Preparado para JOFEMESA por</span><span class="logo lt"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><span>Preparado para JOFEMESA por</span><img class="logo-img lt" src="assets/logo-negativo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 02 · CÓMO HEMOS TRABAJADO ═══════════════ -->
@@ -302,7 +305,7 @@ strong{font-weight:700;color:var(--navy)}
     </div>
     <p class="lede" style="margin-top:34px">Todo lo que sigue es un dato que puede comprobar usted mismo.</p>
   </div>
-  <div class="credit"><span class="logo"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img" src="assets/logo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 03 · EL GOLPE ═══════════════ -->
@@ -314,7 +317,7 @@ strong{font-weight:700;color:var(--navy)}
       <p class="big">Ni uno. En ninguna de las 24 páginas hay un sitio donde alguien pueda dejar su nombre y su teléfono para pedir un presupuesto.</p>
     </div>
   </div>
-  <div class="credit"><span class="logo lt"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img lt" src="assets/logo-negativo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 04 · QUÉ SIGNIFICA ═══════════════ -->
@@ -328,7 +331,7 @@ strong{font-weight:700;color:var(--navy)}
       <div class="c"><span class="k">Consecuencia 3</span><h4>Su competencia sí lo tiene</h4><p>Cuando un jefe de compras pide precio a tres proveedores a la vez, los que tienen formulario reciben el correo en el momento. Ustedes esperan a que alguien decida llamar.</p></div>
     </div>
   </div>
-  <div class="credit"><span class="logo"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img" src="assets/logo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 05 · VELOCIDAD ═══════════════ -->
@@ -343,7 +346,7 @@ strong{font-weight:700;color:var(--navy)}
     <p class="lede" style="max-width:76ch;margin-top:26px">Cuente hasta trece despacio. Eso es lo que tiene que esperar alguien con el móvil en la obra antes de ver su primera foto. <strong>Más de la mitad de la gente cierra la pestaña antes de llegar.</strong></p>
     <p class="lede" style="max-width:76ch;color:rgba(255,255,255,.6);font-size:clamp(17px,1.4vw,21px)">La causa no son las fotos. Son 24 ficheros de código de diseño acumulados que el navegador tiene que descargar y procesar antes de dibujar nada en pantalla.</p>
   </div>
-  <div class="credit"><span class="logo lt"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img lt" src="assets/logo-negativo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 06 · LA CUENTA DE LA PUBLICIDAD ═══════════════ -->
@@ -357,7 +360,7 @@ strong{font-weight:700;color:var(--navy)}
     </div>
     <p class="lede" style="max-width:78ch;margin-top:28px">Paga el clic, la persona entra, espera, se cansa y se va. Y aún hay una segunda factura: <strong>Google cobra más caro el clic cuando la página de destino es lenta.</strong> Está pagando dos veces por el mismo problema.</p>
   </div>
-  <div class="credit"><span class="logo lt"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img lt" src="assets/logo-negativo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 07 · MÓVIL ═══════════════ -->
@@ -391,7 +394,7 @@ strong{font-weight:700;color:var(--navy)}
       <p style="text-align:center;font-family:var(--fd);font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-top:16px">Su portada hoy en el móvil</p>
     </div>
   </div>
-  <div class="credit"><span class="logo"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img" src="assets/logo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 08 · TELÉFONO ROTO ═══════════════ -->
@@ -405,7 +408,7 @@ strong{font-weight:700;color:var(--navy)}
       <p style="margin:0;font-size:clamp(19px,1.7vw,25px);font-weight:500;color:#fff">Esto se lo arreglamos <strong style="color:var(--teal)">gratis esta semana</strong>, decidan lo que decidan con el resto de la propuesta. Son diez minutos de trabajo y no tiene sentido que siga así.</p>
     </div>
   </div>
-  <div class="credit"><span class="logo lt"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img lt" src="assets/logo-negativo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 09 · LAS 8 PREGUNTAS ═══════════════ -->
@@ -425,7 +428,7 @@ strong{font-weight:700;color:var(--navy)}
     </div>
     <p class="lede" style="margin-top:30px;max-width:80ch">Ninguna tiene respuesta en la web. <strong>Las ocho las contesta su equipo por teléfono, una por una, todos los días.</strong> Ese tiempo se puede recuperar.</p>
   </div>
-  <div class="credit"><span class="logo"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img" src="assets/logo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 10 · DATOS ESCONDIDOS ═══════════════ -->
@@ -454,7 +457,7 @@ strong{font-weight:700;color:var(--navy)}
       </div>
     </div>
   </div>
-  <div class="credit"><span class="logo"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img" src="assets/logo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 11 · CATÁLOGO REGALADO ═══════════════ -->
@@ -473,7 +476,7 @@ strong{font-weight:700;color:var(--navy)}
       <p class="lede" style="margin:0">Quien quiere su catálogo de flota es exactamente el cliente que le interesa. Pedir cuatro datos no le va a echar atrás — y usted se queda con un contacto cualificado en lugar de una descarga anónima.</p>
     </div>
   </div>
-  <div class="credit"><span class="logo lt"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img lt" src="assets/logo-negativo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 12 · SIN PRUEBA SOCIAL ═══════════════ -->
@@ -490,7 +493,7 @@ strong{font-weight:700;color:var(--navy)}
     </div>
     <p class="lede" style="margin-top:28px;max-width:82ch">Una empresa con casi cuarenta años trabajando con constructoras e industria <strong>tiene material de sobra</strong>. Solo hay que pedirlo y ponerlo.</p>
   </div>
-  <div class="credit"><span class="logo"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img" src="assets/logo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 13 · RESUMEN DEL DIAGNÓSTICO ═══════════════ -->
@@ -515,7 +518,7 @@ strong{font-weight:700;color:var(--navy)}
       </table>
     </div>
   </div>
-  <div class="credit"><span class="logo"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img" src="assets/logo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 14 · TRANSICIÓN ═══════════════ -->
@@ -525,7 +528,7 @@ strong{font-weight:700;color:var(--navy)}
     <h1 style="max-width:24ch;margin:0 auto 22px">Ahora las <em>buenas noticias</em></h1>
     <p class="lede" style="max-width:60ch;margin:0 auto;font-size:clamp(20px,1.8vw,27px)">Porque tienen mucho más de lo que están usando.</p>
   </div>
-  <div class="credit"><span class="logo lt"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img lt" src="assets/logo-negativo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 15 · LO QUE FUNCIONA ═══════════════ -->
@@ -540,7 +543,7 @@ strong{font-weight:700;color:var(--navy)}
       <div class="c good"><span class="k">Se reutiliza</span><h4>Su material</h4><p>El vídeo, las fichas técnicas, el catálogo. Buen material, mal colocado. No hay que hacerlo otra vez: hay que ponerlo donde sirva.</p></div>
     </div>
   </div>
-  <div class="credit"><span class="logo"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img" src="assets/logo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 16 · EL ARGUMENTO ENTERRADO ═══════════════ -->
@@ -554,7 +557,7 @@ strong{font-weight:700;color:var(--navy)}
       <p class="lede" style="max-width:56ch;color:var(--magl);font-weight:500">Debería ser lo segundo que lea cualquiera que entre en su web.</p>
     </div>
   </div>
-  <div class="credit"><span class="logo lt"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img lt" src="assets/logo-negativo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 17 · LO QUE NADIE PUEDE COPIAR ═══════════════ -->
@@ -575,7 +578,7 @@ strong{font-weight:700;color:var(--navy)}
     <p class="lede" style="margin-top:30px;max-width:84ch;font-size:clamp(20px,1.7vw,26px)">Sus competidores pueden bajar el precio mañana. <strong>No pueden abrir 12 talleres en 9 provincias mañana.</strong></p>
     <p class="lede" style="max-width:84ch">Estar a veinte minutos de la obra es su ventaja real. Y hoy su web no la usa en absoluto: no hay ni una página pensada para quien busca en Málaga, en Sevilla o en Valladolid.</p>
   </div>
-  <div class="credit"><span class="logo"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img" src="assets/logo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 18 · LA PROPUESTA ═══════════════ -->
@@ -585,7 +588,7 @@ strong{font-weight:700;color:var(--navy)}
     <h1 style="max-width:26ch;margin:0 auto 26px;font-size:clamp(38px,5.6vw,80px)">Convertimos su web en una <em>máquina de pedir presupuestos</em></h1>
     <p class="lede" style="max-width:62ch;margin:0 auto;font-size:clamp(20px,1.8vw,27px)">Y dejamos puestos los medidores para que sepa exactamente de dónde le viene cada cliente y cuánto le ha costado.</p>
   </div>
-  <div class="credit"><span class="logo lt"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img lt" src="assets/logo-negativo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 19 · LA NUEVA PORTADA ═══════════════ -->
@@ -615,7 +618,7 @@ strong{font-weight:700;color:var(--navy)}
     </div>
     <p class="lede" style="margin-top:22px;max-width:86ch">Cuatro datos, nada más. Cuantas menos casillas, más gente lo rellena. <strong>Y el vídeo de presentación baja más abajo:</strong> un vídeo está muy bien, pero no es un presupuesto.</p>
   </div>
-  <div class="credit"><span class="logo"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img" src="assets/logo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 20 · MENÚ ═══════════════ -->
@@ -650,7 +653,7 @@ strong{font-weight:700;color:var(--navy)}
     </div>
     <p class="lede" style="margin-top:24px;max-width:86ch">Hoy, para llegar a una plataforma de tijera hay que hacer <strong>tres clics</strong>, y cuando se llega no hay ni precio ni formulario. Después será <strong>un clic</strong>, y el teléfono y el botón de presupuesto estarán siempre visibles arriba.</p>
   </div>
-  <div class="credit"><span class="logo"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img" src="assets/logo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 21 · MÁQUINAS A LA VISTA ═══════════════ -->
@@ -678,7 +681,7 @@ strong{font-weight:700;color:var(--navy)}
       <p class="lede"><strong>Cada máquina tendrá su propio botón de pedir precio.</strong> El cliente no tiene que buscar dónde preguntar: lo tiene justo debajo de la máquina que le interesa.</p>
     </div>
   </div>
-  <div class="credit"><span class="logo"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img" src="assets/logo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 22 · MÓVIL ARREGLADO ═══════════════ -->
@@ -708,7 +711,7 @@ strong{font-weight:700;color:var(--navy)}
       <p style="text-align:center;font-family:var(--fd);font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:16px">Barra fija en todas las páginas</p>
     </div>
   </div>
-  <div class="credit"><span class="logo lt"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img lt" src="assets/logo-negativo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 23 · 8 PROVINCIAS ═══════════════ -->
@@ -724,7 +727,7 @@ strong{font-weight:700;color:var(--navy)}
     </div>
     <p class="lede" style="margin-top:26px;max-width:84ch"><strong>Sus 12 centros dejan de ser una lista de direcciones y se convierten en ocho puertas de entrada.</strong></p>
   </div>
-  <div class="credit"><span class="logo"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img" src="assets/logo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 24 · MEDICIÓN ═══════════════ -->
@@ -740,7 +743,7 @@ strong{font-weight:700;color:var(--navy)}
       <div class="c"><span class="k">Verá</span><h4>Cuánto le costó</h4><p>El precio exacto de cada petición de presupuesto. Ese número es el que decide si merece la pena invertir más o menos.</p></div>
     </div>
   </div>
-  <div class="credit"><span class="logo"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img" src="assets/logo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 25 · ANTES Y DESPUÉS ═══════════════ -->
@@ -766,7 +769,7 @@ strong{font-weight:700;color:var(--navy)}
       </table>
     </div>
   </div>
-  <div class="credit"><span class="logo lt"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img lt" src="assets/logo-negativo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 26 · PRECIO ═══════════════ -->
@@ -801,7 +804,7 @@ strong{font-weight:700;color:var(--navy)}
         <div class="h">
           <p class="nm">Conversión</p>
           <p class="tg">La web completa, midiendo todo.</p>
-          <div class="pr">2.950<sup>€</sup></div>
+          <div class="pr">3.500<sup>€</sup></div>
           <p class="vat">Sin IVA · en tres pagos</p>
         </div>
         <div class="b">
@@ -811,9 +814,8 @@ strong{font-weight:700;color:var(--navy)}
             <li class="p">6 sitios donde pedir presupuesto, y cada petición va directa a su delegación</li>
             <li class="p">Catálogo entregado a cambio de los datos</li>
             <li class="p">Medición completa en Google y Facebook, y en regla con la ley de cookies</li>
-            <li class="p">4 páginas de campaña para sus provincias</li>
             <li class="p">Todos los textos escritos por nosotros</li>
-            <li class="p">Panel diario para ver qué funciona</li>
+            <li class="p">Trabajamos el proyecto en WordPress, el mismo gestor de contenidos que ya usan</li>
             <li class="p">Web rápida de verdad: menos de 2,5 s</li>
           </ul>
         </div>
@@ -823,7 +825,7 @@ strong{font-weight:700;color:var(--navy)}
         <div class="h">
           <p class="nm">Performance</p>
           <p class="tg">Todo, y listo para crecer en las 8 provincias.</p>
-          <div class="pr">3.900<sup>€</sup></div>
+          <div class="pr">5.900<sup>€</sup></div>
           <p class="vat">Sin IVA · en tres pagos</p>
         </div>
         <div class="b">
@@ -834,7 +836,7 @@ strong{font-weight:700;color:var(--navy)}
             <li class="p">Las 8 fichas de Google de sus sedes puestas a punto</li>
             <li class="p">Calculadora «alquilar o comprar carretilla»</li>
             <li class="p">2 guías descargables más para captar contactos</li>
-            <li class="p">90 días de acompañamiento en lugar de 30</li>
+            <li class="p">30 días de acompañamiento</li>
           </ul>
         </div>
       </div>
@@ -842,18 +844,26 @@ strong{font-weight:700;color:var(--navy)}
     </div>
     <p class="lede" style="margin-top:24px;max-width:88ch;font-size:clamp(17px,1.4vw,20px)">Precios sin IVA. Se pagan en tres veces: al empezar, al aprobar el diseño y al publicar. La web está lista en <strong>6 o 7 semanas</strong>. La inversión en publicidad de Google se paga aparte y va directamente a Google.</p>
   </div>
-  <div class="credit"><span class="logo"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img" src="assets/logo.png" alt="LeadAdgo"></div>
 </section>
 
-<!-- ═══════════════ 27 · GARANTÍA ═══════════════ -->
-<section class="s navy" data-document-role="page" data-label="27 - Garantia">
-  <div class="w" style="text-align:center">
-    <p class="eyebrow" style="text-align:center;color:var(--teal)">Nuestra garantía</p>
-    <h1 style="max-width:26ch;margin:0 auto 26px;font-size:clamp(36px,5.4vw,76px)">Si no funciona,<br><em>seguimos sin cobrar</em></h1>
-    <p class="lede" style="max-width:64ch;margin:0 auto 22px;font-size:clamp(20px,1.8vw,27px);color:#fff">Hoy tienen <strong style="color:var(--magl)">cero</strong> peticiones de presupuesto que puedan identificar. Si a los 90 días de publicar la web no hemos pasado de <strong style="color:var(--magl)">15 al mes</strong>, seguimos trabajando sin coste hasta conseguirlo.</p>
-    <p class="lede" style="max-width:70ch;margin:0 auto;font-size:clamp(16px,1.35vw,19px);color:rgba(255,255,255,.62)">La única condición: que nos den el material que les pedimos y que contesten a las peticiones en menos de 24 horas. Si el presupuesto tarda tres días en salir, el problema no es la web.</p>
+<!-- ═══════════════ 27 · NO INCLUIDO ═══════════════ -->
+<section class="s" data-document-role="page" data-label="27 - No incluido">
+  <div class="w">
+    <p class="eyebrow">Para que no haya sorpresas</p>
+    <h2>Lo que <em>no incluye</em> este presupuesto</h2>
+    <div class="notinc" style="margin-top:28px">
+      <div><i>01</i><span>Hosting, dominio o licencias externas</span></div>
+      <div><i>02</i><span>Compra de fotografías, vídeos o recursos premium</span></div>
+      <div><i>03</i><span>Producción audiovisual (grabar vídeo nuevo)</span></div>
+      <div><i>04</i><span>Traducciones profesionales — la web se entrega en español</span></div>
+      <div><i>05</i><span>Redacción legal de textos de privacidad, cookies o condiciones</span></div>
+      <div><i>06</i><span>Integraciones avanzadas con CRM, ERP u otros sistemas internos</span></div>
+      <div><i>07</i><span>Mantenimiento mensual posterior al lanzamiento</span></div>
+      <div class="t"><i>08</i><span>Campañas de publicidad o gestión SEO — esto lo hacemos, pero como servicio aparte</span></div>
+    </div>
   </div>
-  <div class="credit"><span class="logo lt"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img" src="assets/logo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 28 · QUÉ NECESITAMOS ═══════════════ -->
@@ -871,7 +881,7 @@ strong{font-weight:700;color:var(--navy)}
     </div>
     <p class="lede" style="margin-top:28px;max-width:84ch;font-size:clamp(19px,1.6vw,24px)">Podemos hacer la mejor web del sector. Pero si no podemos decir que entregan en 24 horas ni mostrar con quién trabajan, <strong>estaremos compitiendo con una mano atada.</strong></p>
   </div>
-  <div class="credit"><span class="logo lt"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span></div>
+  <div class="credit"><img class="logo-img lt" src="assets/logo-negativo.png" alt="LeadAdgo"></div>
 </section>
 
 <!-- ═══════════════ 29 · CIERRE ═══════════════ -->
@@ -887,7 +897,7 @@ strong{font-weight:700;color:var(--navy)}
     </div>
     <p class="lede" style="margin-top:34px;max-width:66ch;font-size:clamp(20px,1.7vw,26px);color:#fff">Gracias por el tiempo. <strong>¿Empezamos por el teléfono?</strong></p>
   </div>
-  <div class="credit"><span>Propuesta preparada por</span><span class="logo lt"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span><span>· Julio 2026</span></div>
+  <div class="credit"><span>Propuesta preparada por</span><img class="logo-img lt" src="assets/logo-negativo.png" alt="LeadAdgo"><span>· Julio 2026</span></div>
 </section>
 
 <!-- ═══════════════ CONTROLES ═══════════════ -->

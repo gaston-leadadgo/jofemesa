@@ -58,12 +58,15 @@ Direcciones cortas ya configuradas en ese sitio:
 
 ```
 JOFEMESA-CLIENTE/
-├── index.html        ← la presentación (29 diapositivas)
-├── netlify.toml      ← cabeceras de seguridad y noindex
-└── robots.txt        ← bloquea a los buscadores
+├── index.html               ← la presentación (29 diapositivas)
+├── assets/
+│   ├── logo.png             ← logo LeadadGo para fondos claros
+│   └── logo-negativo.png    ← logo LeadadGo para fondos oscuros
+├── netlify.toml             ← cabeceras de seguridad y noindex
+└── robots.txt               ← bloquea a los buscadores
 ```
 
-Son tres ficheros y **nada más**. La presentación es autocontenida: todo el CSS y el JavaScript van dentro del propio `index.html`. No necesita la carpeta `assets`.
+El CSS y el JavaScript siguen dentro del propio `index.html`, pero desde que el logo real sustituyó a la reconstrucción en CSS, **la carpeta `assets` ya es imprescindible aquí también** — sin ella, el logo saldrá roto en las 29 diapositivas.
 
 ### `JOFEMESA` — súbela tal cual
 
@@ -87,8 +90,8 @@ JOFEMESA/
 
 ## Lo que NO puedes tocar para que no se rompa
 
-**1. La carpeta `assets` tiene que ir dentro.**
-Los documentos 01, 02 y 03 cargan `assets/leadadgo.css`. Si subes solo los HTML sin esa carpeta, aparecerán como texto sin formato. Los documentos 04, 05 y el portal sí son autocontenidos y funcionarían solos.
+**1. La carpeta `assets` tiene que ir dentro — en las dos carpetas.**
+En `JOFEMESA`, los documentos 01, 02 y 03 cargan `assets/leadadgo.css`; sin esa carpeta aparecerán como texto sin formato. En `JOFEMESA-CLIENTE`, `assets/logo.png` y `assets/logo-negativo.png` son los que pintan el logo de las 29 diapositivas; sin ellos, el logo sale roto (aunque el resto de la presentación funcione).
 
 **2. No cambies los nombres de los ficheros ni las mayúsculas.**
 Netlify corre sobre Linux y distingue mayúsculas de minúsculas. En tu Windows `01-auditoria...` y `01-Auditoria...` son el mismo fichero; en Netlify no. Si renombras uno, los enlaces del portal dejarán de funcionar.
@@ -117,12 +120,13 @@ Netlify no detecta cambios por su cuenta con este método:
 2. Arrastra otra vez la carpeta a la zona de **Drag and drop your site output folder here**
 3. La dirección se mantiene igual
 
-**Ojo con la presentación del cliente:** existe en dos sitios. Si editas `JOFEMESA/05-Presentacion-Cliente.html` tienes que copiarlo otra vez a `JOFEMESA-CLIENTE/index.html`, o el sitio público se queda con la versión antigua.
+**Ojo con la presentación del cliente:** existe en dos sitios. Si editas `05-Presentacion-Cliente.html` tienes que copiarlo otra vez a `JOFEMESA-CLIENTE\index.html`, o el sitio público se queda con la versión antigua. Si además cambias el logo, hay que volver a copiar la carpeta `assets` también.
 
 Comando para copiarlo (PowerShell, desde `D:\Gutmark\CAPTABILIDADES\Clientes\JoseMesa`):
 
 ```powershell
-Copy-Item ".\JOFEMESA\05-Presentacion-Cliente.html" ".\JOFEMESA-CLIENTE\index.html" -Force
+Copy-Item ".\JOFEMESA\Nueva carpeta\05-Presentacion-Cliente.html" ".\JOFEMESA-CLIENTE\index.html" -Force
+Copy-Item ".\JOFEMESA\Nueva carpeta\assets\logo*.png" ".\JOFEMESA-CLIENTE\assets\" -Force
 ```
 
 ---
