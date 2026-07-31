@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual de marca digital JOFEMESA · LeadadGo</title>
+<link rel="stylesheet" href="assets/leadadgo.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Lora:wght@400&display=swap" rel="stylesheet">
+<style>
+  /* Especímenes del sistema de marca de JOFEMESA (contenido, no interfaz) */
+  .spec { border:1px solid var(--border); padding:28px 30px; margin:0 0 20px; background:#fff; }
+  .spec .meta { font-family:var(--font-display); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--magenta); margin-bottom:14px; }
+  .spec .sample { color:#0E1217; }
+  .mont { font-family:'Montserrat',sans-serif; }
+  .inter { font-family:'Inter',sans-serif; }
+  .lora { font-family:'Lora',serif; }
+  .ratio { display:inline-block; font-family:ui-monospace,Consolas,monospace; font-size:13px; padding:3px 8px; background:var(--mist); border:1px solid var(--border); margin-left:6px; }
+  .ratio.pass { background:#EAF8F7; border-color:#B4E4E1; color:#0B5C57; }
+  .ratio.fail { background:#FBEEF6; border-color:#EBC4DD; color:#8A1A5F; }
+  .btnrow { display:flex; flex-wrap:wrap; gap:14px; align-items:center; margin:0 0 20px; }
+  .jbtn { font-family:'Inter',sans-serif; font-weight:600; font-size:17px; padding:16px 32px; border-radius:0; border:0; cursor:default; min-height:48px; }
+  .jbtn.p  { background:#AC0000; color:#fff; }
+  .jbtn.s  { background:transparent; color:#1C3254; border:2px solid #1C3254; }
+  .jbtn.t  { background:transparent; color:#AC0000; text-decoration:underline; padding:16px 4px; }
+  .jbtn.w  { background:#25D366; color:#0E1217; }
+  .jcard { border:1px solid #D6DAE0; border-radius:2px; max-width:330px; font-family:'Inter',sans-serif; background:#fff; }
+  .jcard .img { height:150px; background:linear-gradient(135deg,#1C3254,#2b4c7e); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.45); font-size:13px; letter-spacing:.14em; text-transform:uppercase; }
+  .jcard .body { padding:18px 20px; }
+  .jcard .lab { font-family:'Inter',sans-serif; font-size:13px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:#1C3254; }
+  .jcard h5 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:20px; margin:6px 0 14px; color:#0E1217; }
+  .jcard dl { margin:0 0 18px; font-size:15px; }
+  .jcard .r { display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #EDEFF3; }
+  .jcard .r span:first-child { color:#4A5561; }
+  .jcard .r span:last-child { font-variant-numeric:tabular-nums; font-weight:600; color:#0E1217; }
+  .jcard .acts { display:flex; gap:10px; align-items:center; }
+  .jcard .acts .jbtn { font-size:15px; padding:13px 20px; }
+  .figures { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:0; border:1px solid #D6DAE0; margin:0 0 20px; font-family:'Inter',sans-serif; }
+  .figures div { padding:26px 20px; text-align:center; }
+  .figures div + div { border-left:1px solid #D6DAE0; }
+  .figures b { display:block; font-size:52px; font-weight:700; line-height:1; color:#AC0000; font-variant-numeric:tabular-nums; }
+  .figures span { display:block; margin-top:10px; font-size:13px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:#4A5561; }
+  .mbar { display:flex; gap:10px; border:1px solid #D6DAE0; padding:12px; background:#fff; max-width:420px; font-family:'Inter',sans-serif; }
+  .mbar div { flex:1; text-align:center; padding:13px 6px; font-weight:600; font-size:15px; }
+  .dodont { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:0 0 26px; }
+  .dodont > div { border:1px solid var(--border); padding:22px 24px; }
+  .dodont .do { border-top:4px solid var(--teal); background:#F7FCFC; }
+  .dodont .dont { border-top:4px solid var(--magenta); background:#FDF7FB; }
+  .dodont h4 { margin:0 0 12px; font-family:var(--font-display); font-size:15px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-3); }
+  .dodont ul { margin:0; padding-left:20px; font-size:15.5px; }
+  .scale-tbl td:nth-child(2) { font-family:'Montserrat',sans-serif; }
+  @media (max-width:860px){ .dodont { grid-template-columns:1fr; } .figures div + div { border-left:0; border-top:1px solid #D6DAE0; } }
+</style>
+</head>
+<body>
+
+<header class="doc-head">
+  <div class="shell">
+    <div class="topbar">
+      <span class="logo logo--light"><span class="lg-a">Lead</span><span class="lg-b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="lg-ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="lg-bar" d="M12 2.6v8.4"/></svg></span>
+      <span class="doc-kicker">Documento 02 de 04</span>
+    </div>
+    <span class="doc-kicker">Cliente · JOFEMESA</span>
+    <h1>Manual de<br><em>marca</em> digital</h1>
+    <p class="sub">Identidad visual, sistema de diseño y arquitectura de contenido. Ámbito: identidad digital aplicada al rediseño web y a piezas de campaña.</p>
+    <div class="doc-meta">
+      <span>Versión 1.0 · 30 de julio de 2026</span>
+      <span>17 apartados</span>
+      <span>Contrastes WCAG calculados</span>
+    </div>
+  </div>
+</header>
+
+<nav class="docnav"><div class="shell">
+  <span class="logo"><span class="lg-a">Lead</span><span class="lg-b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="lg-ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="lg-bar" d="M12 2.6v8.4"/></svg></span>
+  <span class="spacer"></span>
+  <a href="01-Auditoria-Web-Actual.html">01 · Auditoría</a>
+  <a href="02-Manual-de-Marca.html" aria-current="page">02 · Manual de marca</a>
+  <a href="03-Arquitectura-Rediseno.html">03 · Arquitectura</a>
+  <a href="04-Propuesta-Comercial.html">04 · Propuesta</a>
+</div></nav>
+
+<main class="shell">
+
+  <div class="toc">
+    <h4>Contenido del documento</h4>
+    <ol>
+      <li><a href="#ficha">Ficha de identidad corporativa</a></li>
+      <li><a href="#posicionamiento">Posicionamiento y propuesta de valor</a></li>
+      <li><a href="#voz">Voz y tono</a></li>
+      <li><a href="#mensajes">Arquitectura de mensajes</a></li>
+      <li><a href="#logo">Logotipo</a></li>
+      <li><a href="#color">Sistema de color</a></li>
+      <li><a href="#tipografia">Sistema tipográfico</a></li>
+      <li><a href="#reticula">Retícula, espaciado y elevación</a></li>
+      <li><a href="#componentes">Componentes de interfaz</a></li>
+      <li><a href="#fotografia">Fotografía e iconografía</a></li>
+      <li><a href="#incorrectos">Usos incorrectos</a></li>
+      <li><a href="#servicios">Inventario de servicios</a></li>
+      <li><a href="#sedes">Directorio de las 12 sedes</a></li>
+      <li><a href="#cifras">Cifras y activos de confianza</a></li>
+      <li><a href="#descargables">Activos descargables</a></li>
+      <li><a href="#redes">Presencia digital y redes</a></li>
+      <li><a href="#diccionario">Diccionario del sector</a></li>
+    </ol>
+  </div>
+
+  <!-- ============ PARTE A ============ -->
+  <div class="callout dark" style="margin-bottom:56px">
+    <p class="big" style="margin:0">Parte A · La marca</p>
+  </div>
+
+  <section id="ficha">
+    <span class="sec-num">01</span>
+    <h2>Ficha de identidad corporativa</h2>
+    <div class="rule"></div>
+    <div class="tw"><table>
+      <tbody>
+        <tr><td style="width:34%"><strong>Denominación comercial</strong></td><td>JOFEMESA</td></tr>
+        <tr><td><strong>Sector</strong></td><td>Alquiler, venta y mantenimiento de maquinaria para construcción, industria y eventos</td></tr>
+        <tr><td><strong>Año de fundación</strong></td><td class="num">1987</td></tr>
+        <tr><td><strong>Antigüedad</strong></td><td class="num">39 años (2026)</td></tr>
+        <tr><td><strong>Ámbito geográfico</strong></td><td>España (9 provincias con instalación) + Portugal</td></tr>
+        <tr><td><strong>Centros operativos</strong></td><td class="num">12</td></tr>
+        <tr><td><strong>Flota</strong></td><td>Más de 4.000 máquinas</td></tr>
+        <tr><td><strong>Antigüedad media de la flota</strong></td><td>Inferior a 3 años</td></tr>
+        <tr><td><strong>Sede central</strong></td><td>Carretera Madrid-Barcelona (A-2), Km 15.300 · 28022 Madrid</td></tr>
+        <tr><td><strong>Teléfono central</strong></td><td class="num">91 361 31 31</td></tr>
+        <tr><td><strong>Correo general</strong></td><td>jofemesa@jofemesa.com</td></tr>
+        <tr><td><strong>Certificaciones</strong></td><td>ISO 9001 · ISO 14001 · ISO 45001</td></tr>
+        <tr><td><strong>Asociaciones</strong></td><td>IPAF · ANAPAT</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Descriptor de marca</h3>
+    <div class="callout">
+      <p class="big" style="margin:0">JOFEMESA — Alquiler de maquinaria para construcción e industria.</p>
+    </div>
+    <p>Este descriptor ya existe en la web actual y funciona. Se conserva.</p>
+
+    <h4>Descriptor extendido (firma, redes, Google Business Profile)</h4>
+    <p>«Alquiler y venta de maquinaria de elevación y obra desde 1987. Más de 4.000 máquinas con menos de 3 años de antigüedad media y 12 centros en España y Portugal.»</p>
+  </section>
+
+  <section id="posicionamiento">
+    <span class="sec-num">02</span>
+    <h2>Posicionamiento y propuesta de valor</h2>
+    <div class="rule"></div>
+    <p class="lead">El alquiler de maquinaria es un mercado percibido como <em>commodity</em>: el comprador pide precio a tres proveedores y elige el más barato o el que tiene la máquina antes. GAM, Loxam, Riwal y Alquiber compiten en precio y en tamaño de flota, y sus webs son prácticamente intercambiables.</p>
+
+    <p>JOFEMESA no puede ni debe competir en «más barato». Tiene dos ventajas que sus competidores no pueden replicar rápido:</p>
+    <div class="cards">
+      <div class="card hl"><span class="idx">Ventaja A</span><h4>La flota más joven</h4><p>Antigüedad media inferior a 3 años. En un negocio donde una avería significa una obra parada y penalizaciones de plazo, esto no es un dato técnico: es la diferencia entre cumplir y no cumplir.</p></div>
+      <div class="card hl"><span class="idx">Ventaja B</span><h4>Presencia física y taller propio</h4><p>12 centros en 9 provincias con taller propio. No es una red de <em>partners</em>: son instalaciones de JOFEMESA con mecánicos de JOFEMESA.</p></div>
+    </div>
+
+    <div class="callout dark">
+      <p class="big">Maquinaria que no para su obra.</p>
+      <p style="margin:0">Flota con menos de 3 años de antigüedad media, 12 centros en España y servicio técnico propio. Si algo falla, lo arreglamos nosotros y el mismo día.</p>
+    </div>
+
+    <h3>Los cuatro pilares de mensaje</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Pilar</th><th>Argumento</th><th>Prueba</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Fiabilidad</strong></td><td>La máquina llega y funciona</td><td>Flota &lt; 3 años · +4.000 unidades · Primeras marcas</td></tr>
+        <tr><td><strong>Cercanía</strong></td><td>Estamos al lado de su obra</td><td>12 centros en 9 provincias + Portugal · Servicio técnico propio</td></tr>
+        <tr><td><strong>Seguridad</strong></td><td>Cumplimos y le hacemos cumplir</td><td>ISO 45001 · IPAF · ANAPAT · Manuales de uso y seguridad</td></tr>
+        <tr><td><strong>Veteranía</strong></td><td>Sabemos qué máquina necesita</td><td>Desde 1987 · 39 años · Asesoramiento técnico previo</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Perfiles de comprador</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Perfil</th><th>Quién es</th><th>Qué le importa</th><th>Búsqueda tipo</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Jefe de obra</strong></td><td>Decide el alquiler del día a día. Móvil en mano, en obra.</td><td>Disponibilidad hoy, entrega en obra, que no se averíe</td><td><code>alquiler plataforma tijera 10 metros [ciudad]</code></td></tr>
+        <tr><td><strong>Responsable de compras</strong></td><td>Constructora media o grande. Compara y negocia.</td><td>Precio, condiciones, ISO, capacidad de suministro</td><td><code>empresas alquiler maquinaria construcción [provincia]</code></td></tr>
+        <tr><td><strong>Mantenimiento industrial</strong></td><td>Fábrica, planta, almacén.</td><td>Carretillas, larga duración, servicio técnico</td><td><code>alquiler carretilla elevadora industrial larga duración</code></td></tr>
+        <tr><td><strong>Autónomo / reforma</strong></td><td>Compra por impulso, ciclo corto.</td><td>Precio del día, sencillez, sin papeleo</td><td><code>alquilar miniexcavadora [ciudad] precio</code></td></tr>
+        <tr><td><strong>Organizador de eventos</strong></td><td>Nicho de alta rotación y buen margen.</td><td>Grupos electrógenos, torres de luz, plazos exactos</td><td><code>alquiler grupo electrógeno evento [ciudad]</code></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="voz">
+    <span class="sec-num">03</span>
+    <h2>Voz y tono</h2>
+    <div class="rule"></div>
+    <p class="lead">JOFEMESA habla como <strong>el técnico veterano de confianza</strong>: sabe de lo que habla, no vende humo, va al dato y resuelve. No es un comercial entusiasta y no es un folleto institucional.</p>
+
+    <div class="dodont">
+      <div class="do"><h4>Somos</h4><ul><li>Directos</li><li>Técnicos y concretos</li><li>Serviciales</li><li>Seguros</li><li>Con cifras</li></ul></div>
+      <div class="dont"><h4>No somos</h4><ul><li>Rimbombantes</li><li>Genéricos</li><li>Serviles</li><li>Arrogantes</li><li>Con adjetivos</li></ul></div>
+    </div>
+
+    <h3>Tratamiento</h3>
+    <p><strong>«Usted»</strong> en toda la web corporativa y en las páginas pilar. Es lo que ya usa la marca y lo que espera el comprador industrial español de más de 40 años, que es el perfil dominante. <strong>Excepción:</strong> en las landings de campaña se puede testar «tú» con audiencias de autónomos y reformas. Debe ser un test A/B medido, no una decisión de gusto.</p>
+
+    <h3>Reglas de redacción</h3>
+    <div class="dodont">
+      <div class="dont">
+        <h4>Prohibido — todo esto está hoy en la web y no dice nada</h4>
+        <ul>
+          <li>«Amplia gama» / «Amplia variedad» / «Amplia flota»</li>
+          <li>«Soluciones adaptadas a cada necesidad»</li>
+          <li>«Última generación»</li>
+          <li>«Primeras marcas» <em>(sin decir cuáles)</em></li>
+          <li>«Líder del sector»</li>
+          <li>«Conozca más» / «Leer más» / «Ver todo» / «Más información»</li>
+          <li>«Comprometidos con la calidad»</li>
+          <li>«Servicio personalizado» <em>(sin explicar en qué consiste)</em></li>
+        </ul>
+      </div>
+      <div class="do">
+        <h4>Obligatorio</h4>
+        <ul>
+          <li><strong>Cifra siempre que exista.</strong> «Más de 4.000 máquinas», no «amplia flota».</li>
+          <li><strong>Plazo siempre que exista.</strong> «Presupuesto en menos de 2 horas», «entrega en 24-48 h».</li>
+          <li><strong>Marcas con nombre.</strong> Genie, Haulotte, JLG, Manitou, Kubota, Takeuchi… El comprador técnico busca por marca.</li>
+          <li><strong>Especificación por delante del nombre comercial.</strong> «Plataforma de tijera eléctrica — 10 m — 320 kg», no «COMPACT 8/10 N».</li>
+          <li><strong>Verbo de acción en los CTA.</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Antes y después</h3>
+    <div class="tw"><table>
+      <thead><tr><th style="width:48%">Hoy en la web</th><th>Reescritura</th></tr></thead>
+      <tbody>
+        <tr><td>«En Jofemesa somos especialistas en el alquiler, venta y mantenimiento de maquinaria… Con más de 30 años de experiencia y un amplio catálogo…»</td><td><strong>«Alquilamos maquinaria de obra e industria desde 1987. Más de 4.000 máquinas con menos de 3 años de antigüedad media, en 12 centros de España y Portugal. Presupuesto en menos de 2 horas.»</strong></td></tr>
+        <tr><td>«Amplia flota moderna y revisada para garantizar su seguridad y eficiencia»</td><td><strong>«Toda la flota revisada y con menos de 3 años. Si una máquina falla, la sustituimos el mismo día.»</strong></td></tr>
+        <tr><td>«Conozca más sobre nosotros»</td><td><strong>«Ver los 12 centros y su flota»</strong></td></tr>
+        <tr><td>«Ver todo»</td><td><strong>«Ver alturas y capacidades»</strong></td></tr>
+        <tr><td>«Descarga nuestro catálogo»</td><td><strong>«Recibir el catálogo de flota 2026 (PDF, 48 páginas)»</strong></td></tr>
+        <tr><td>«Contacta con tu sede más cercana»</td><td><strong>«Pedir presupuesto a mi sede — respuesta en 2 h»</strong></td></tr>
+        <tr><td>«Le asesoramos en la compra y le garantizamos un servicio postventa profesional»</td><td><strong>«Le decimos qué carretilla necesita según su carga, altura y turno. El postventa lo hace nuestro propio taller.»</strong></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="mensajes">
+    <span class="sec-num">04</span>
+    <h2>Arquitectura de mensajes</h2>
+    <div class="rule"></div>
+
+    <h3>Titular principal (H1 de la home)</h3>
+    <div class="spec">
+      <div class="meta">Recomendado</div>
+      <div class="sample">
+        <p class="mont" style="font-size:44px;font-weight:800;line-height:1.02;margin:0 0 14px">Alquiler de maquinaria para obra e industria en toda España</p>
+        <p class="inter" style="font-size:20px;font-weight:400;color:#4A5561;margin:0">Más de 4.000 máquinas con menos de 3 años de antigüedad. 12 centros. Presupuesto en menos de 2 horas.</p>
+      </div>
+    </div>
+    <p><strong>Alternativas para test A/B:</strong> «La maquinaria que no para su obra» · «Alquiler de plataformas y maquinaria de obra desde 1987» · «¿Qué máquina necesita hoy?» <em>(orientado a intención, para landings)</em>.</p>
+
+    <h3>Barra de confianza</h3>
+    <div class="figures">
+      <div><b>1987</b><span>Desde</span></div>
+      <div><b>4.000+</b><span>Máquinas</span></div>
+      <div><b>&lt;3</b><span>Años de flota</span></div>
+      <div><b>12</b><span>Centros</span></div>
+      <div><b>3</b><span>Certificados ISO</span></div>
+    </div>
+
+    <h3>Bloque «Cómo funciona»</h3>
+    <div class="cards">
+      <div class="card"><span class="idx">Paso 01</span><h4>Díganos qué necesita</h4><p>Rellene el formulario o llame a su sede. Si no sabe qué máquina le sirve, se lo decimos nosotros.</p></div>
+      <div class="card"><span class="idx">Paso 02</span><h4>Presupuesto en menos de 2 horas</h4><p>Precio cerrado con transporte y seguro incluidos. Sin sorpresas en la factura.</p></div>
+      <div class="card"><span class="idx">Paso 03</span><h4>La máquina en su obra</h4><p>Entrega en 24-48 h en toda España. Revisada, con la documentación y el manual de seguridad.</p></div>
+    </div>
+    <p><em>Los plazos deben validarse con el cliente antes de publicarse. No se promete lo que no se cumple.</em></p>
+
+    <h3>Objeciones a resolver en FAQ</h3>
+    <p>Estas ocho preguntas son las que impiden la conversión y hoy no tienen respuesta en ningún sitio de la web:</p>
+    <ol>
+      <li>¿Cuánto cuesta alquilar una plataforma elevadora al día / a la semana / al mes?</li>
+      <li>¿El transporte a obra está incluido?</li>
+      <li>¿Cuál es el mínimo de días de alquiler?</li>
+      <li>¿Necesito carné o formación para usar la máquina? ¿La dan ustedes?</li>
+      <li>¿La máquina va con seguro? ¿Qué cubre?</li>
+      <li>¿Qué pasa si la máquina se avería en obra?</li>
+      <li>¿En cuánto tiempo me la entregan?</li>
+      <li>¿Trabajan con particulares o solo con empresas?</li>
+    </ol>
+  </section>
+
+  <!-- ============ PARTE B ============ -->
+  <div class="callout dark" style="margin:70px 0 56px">
+    <p class="big" style="margin:0">Parte B · Identidad visual</p>
+  </div>
+
+  <section id="logo">
+    <span class="sec-num">05</span>
+    <h2>Logotipo</h2>
+    <div class="rule"></div>
+    <p class="lead">Fichero actual: <code>logotipo-jofemesa.webp</code>, usado a 220 × 43 px en cabecera.</p>
+
+    <h3>Problemas detectados</h3>
+    <ul>
+      <li><span class="tag crit">Crítico</span> El fichero devuelve <code>naturalWidth = 0</code>: no se carga correctamente.</li>
+      <li><span class="tag warn">Alto</span> Solo existe en formato de mapa de bits. <strong>No hay SVG.</strong></li>
+      <li><span class="tag warn">Alto</span> No hay versiones para fondo oscuro, monocromo ni cuadrada (redes y perfiles).</li>
+    </ul>
+
+    <h3>Entregables requeridos</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Versión</th><th>Formato</th><th>Uso</th></tr></thead>
+      <tbody>
+        <tr><td>Principal horizontal, color</td><td>SVG + PNG @1x/@2x/@3x</td><td>Cabecera web, documentos</td></tr>
+        <tr><td>Principal horizontal, negativo</td><td>SVG + PNG</td><td>Pie oscuro, imágenes de fondo, vídeo</td></tr>
+        <tr><td>Monocromo negro</td><td>SVG</td><td>Licitaciones, documentación técnica en B/N</td></tr>
+        <tr><td>Isotipo cuadrado</td><td>SVG + PNG 512 / 1024</td><td>Avatar de redes, favicon, Google Business Profile</td></tr>
+        <tr><td>Favicon</td><td>ICO + PNG 32 / 180 / 270</td><td>Navegador y mosaicos de Windows</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Reglas de uso</h3>
+    <ul>
+      <li><strong>Área de respeto:</strong> margen libre equivalente a la altura de la letra «J» en los cuatro lados.</li>
+      <li><strong>Tamaño mínimo:</strong> 120 px de ancho en pantalla, 25 mm en impresión.</li>
+      <li><strong>Fondos permitidos:</strong> blanco, <code>#F5F6F8</code>, <code>#0E1217</code>, <code>#1C3254</code>. Sobre fotografía, solo con capa de oscurecimiento del 45 % o superior.</li>
+      <li><strong>El logotipo nunca se coloca sobre el rojo corporativo.</strong></li>
+    </ul>
+  </section>
+
+  <section id="color">
+    <span class="sec-num">06</span>
+    <h2>Sistema de color</h2>
+    <div class="rule"></div>
+
+    <div class="callout">
+      <h4>Diagnóstico</h4>
+      <p style="margin:0">La web usa <strong>cuatro rojos distintos</strong> (<code>#AC0000</code>, <code>#F60000</code>, <code>#D30000</code>, <code>#BF1F1F</code>) sin criterio, con botones idénticos pintados de dos colores diferentes en la misma página. Simultáneamente declara en sus variables CSS un azul industrial (<code>--base-3: #1C3254</code>) y un amarillo de señalización (<code>--base-2: #EFBB20</code>) del que <strong>no hace ningún uso</strong>. La paleta correcta para JOFEMESA ya estaba a medio escribir en su propio código.</p>
+    </div>
+
+    <h3>Colores de marca</h3>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#AC0000"><span style="color:#fff">#AC0000</span></div><div class="body"><b>Rojo Jofemesa</b><em>rgb(172,0,0)</em><small>Color de marca. Botón primario, acentos, subrayados, iconos activos.<br><span class="ratio pass">7,63:1 · AA/AAA</span></small></div></div>
+      <div class="sw"><div class="chip" style="background:#8A0000"><span style="color:#fff">#8A0000</span></div><div class="body"><b>Rojo oscuro</b><em>rgb(138,0,0)</em><small>Estado <code>:hover</code> y <code>:active</code> del botón primario.<br><span class="ratio pass">10,3:1 · AAA</span></small></div></div>
+      <div class="sw"><div class="chip" style="background:#1C3254"><span style="color:#fff">#1C3254</span></div><div class="body"><b>Azul Industrial</b><em>rgb(28,50,84)</em><small>Estructura y confianza. Fondos oscuros, cabeceras de tabla, pie, bloques de datos.<br><span class="ratio pass">12,38:1 · AAA</span></small></div></div>
+      <div class="sw"><div class="chip" style="background:#EFBB20"><span style="color:#0E1217">#EFBB20</span></div><div class="body"><b>Amarillo Señalización</b><em>rgb(239,187,32)</em><small><strong>Nunca para texto sobre blanco.</strong> Acento gráfico: iconos de seguridad, badges, bordes de aviso, destacados.<br><span class="ratio fail">1,79:1 · falla</span></small></div></div>
+    </div>
+
+    <h3>Neutros</h3>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#0E1217"><span style="color:#fff">#0E1217</span></div><div class="body"><b>Tinta</b><em>rgb(14,18,23)</em><small>Titulares y texto principal. <strong>Sustituye al <code>#000000</code> actual.</strong><br><span class="ratio pass">18,99:1 · AAA</span></small></div></div>
+      <div class="sw"><div class="chip" style="background:#4A5561"><span style="color:#fff">#4A5561</span></div><div class="body"><b>Texto secundario</b><em>rgb(74,85,97)</em><small>Párrafos secundarios, pies de foto, etiquetas de formulario.<br><span class="ratio pass">7,60:1 · AAA</span></small></div></div>
+      <div class="sw"><div class="chip" style="background:#D6DAE0"><span style="color:#0E1217">#D6DAE0</span></div><div class="body"><b>Borde</b><em>rgb(214,218,224)</em><small>Bordes de tarjeta, separadores, campos de formulario.</small></div></div>
+      <div class="sw"><div class="chip" style="background:#F5F6F8;border-bottom:1px solid #D6DAE0"><span style="color:#0E1217">#F5F6F8</span></div><div class="body"><b>Fondo suave</b><em>rgb(245,246,248)</em><small>Secciones alternas, fondos de tarjeta.</small></div></div>
+    </div>
+
+    <h3>Colores funcionales</h3>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#1B7A3D"><span style="color:#fff">#1B7A3D</span></div><div class="body"><b>Éxito</b><em>#1B7A3D</em><small>Formulario enviado, «disponible».</small></div></div>
+      <div class="sw"><div class="chip" style="background:#B7791F"><span style="color:#fff">#B7791F</span></div><div class="body"><b>Aviso</b><em>#B7791F</em><small>Stock limitado, avisos.</small></div></div>
+      <div class="sw"><div class="chip" style="background:#B42318"><span style="color:#fff">#B42318</span></div><div class="body"><b>Error</b><em>#B42318</em><small>Errores de validación.</small></div></div>
+    </div>
+
+    <h3>Reglas de aplicación</h3>
+    <div class="cards">
+      <div class="card hl"><span class="idx">Regla 01</span><h4>El rojo es exclusivo de la acción</h4><p><code>#AC0000</code> solo en botón primario, iconos de estado activo, subrayados de titular y logotipo. <strong>Nunca en navegación secundaria.</strong> Corrige el error actual: «Ver todo» es rojo y «Contacto» es negro.</p></div>
+      <div class="card"><span class="idx">Regla 02</span><h4>Un solo rojo</h4><p>Se eliminan <code>#F60000</code>, <code>#D30000</code> y <code>#BF1F1F</code>. <code>#8A0000</code> se documenta solo como hover.</p></div>
+      <div class="card"><span class="idx">Regla 03</span><h4>Un botón primario por pantalla</h4><p>Si dos botones rojos compiten en la misma vista, uno pasa a secundario (contorno azul industrial).</p></div>
+      <div class="card"><span class="idx">Regla 04</span><h4>Proporción 60 / 25 / 10 / 5</h4><p>60 % blanco y fondo suave · 25 % tinta y texto secundario · 10 % azul industrial · 5 % rojo + amarillo.</p></div>
+      <div class="card"><span class="idx">Regla 05</span><h4>El amarillo nunca lleva texto</h4><p>Salvo en tinta <code>#0E1217</code> <span class="ratio pass">10,63:1</span>.</p></div>
+      <div class="card"><span class="idx">Regla 06</span><h4>WCAG 2.1 AA como mínimo</h4><p>4,5:1 en texto normal, 3:1 en texto grande. Los ratios están calculados y documentados en cada muestra.</p></div>
+    </div>
+
+    <h3>Variables CSS a implementar</h3>
+    <div class="tree" style="border-left-color:#AC0000">:root {
+  <u>/* Marca */</u>
+  --jf-red:            <b>#AC0000</b>;
+  --jf-red-dark:       <b>#8A0000</b>;
+  --jf-blue:           <b>#1C3254</b>;
+  --jf-yellow:         <b>#EFBB20</b>;
+
+  <u>/* Neutros */</u>
+  --jf-ink:            <b>#0E1217</b>;
+  --jf-text-2:         <b>#4A5561</b>;
+  --jf-border:         <b>#D6DAE0</b>;
+  --jf-surface:        <b>#F5F6F8</b>;
+  --jf-white:          <b>#FFFFFF</b>;
+
+  <u>/* Funcionales */</u>
+  --jf-success:        <i>#1B7A3D</i>;
+  --jf-warning:        <i>#B7791F</i>;
+  --jf-error:          <i>#B42318</i>;
+}</div>
+  </section>
+
+  <section id="tipografia">
+    <span class="sec-num">07</span>
+    <h2>Sistema tipográfico</h2>
+    <div class="rule"></div>
+    <p class="lead">Se conserva Montserrat para titulares. Se sustituye Lora por Inter en el cuerpo.</p>
+
+    <h3>Por qué se sustituye Lora</h3>
+    <div class="spec">
+      <div class="meta">Cuerpo actual · Lora 18 px, interlineado 1,5</div>
+      <p class="lora sample" style="font-size:18px;line-height:1.5;margin:0;max-width:62ch">En Jofemesa somos especialistas en el alquiler, venta y mantenimiento de maquinaria para construcción, industria y eventos. Con más de 30 años de experiencia y un amplio catálogo de equipos de elevación, energía, demolición y jardinería.</p>
+    </div>
+    <div class="spec">
+      <div class="meta">Cuerpo propuesto · Inter 18 px, interlineado 1,65</div>
+      <p class="inter sample" style="font-size:18px;line-height:1.65;margin:0;max-width:62ch">Alquilamos maquinaria de obra e industria desde 1987. Más de 4.000 máquinas con menos de 3 años de antigüedad media, en 12 centros de España y Portugal. Presupuesto en menos de 2 horas.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card"><span class="idx">Razón 01</span><h4>Disonancia de categoría</h4><p>Lora es una serif editorial con contraste caligráfico, diseñada para revistas. En una web de maquinaria industrial comunica «suplemento dominical», no «flota de 4.000 máquinas».</p></div>
+      <div class="card hl"><span class="idx">Razón 02</span><h4>No tiene cifras tabulares</h4><p>El rediseño depende de tablas de especificaciones (altura, capacidad, peso, alcance). Sin cifras de ancho fijo, las columnas de números no se alinean — y es precisamente el contenido que más importa al comprador técnico.</p></div>
+      <div class="card"><span class="idx">Razón 03</span><h4>Fallback erróneo</h4><p>Declarada como <code>font-family: Lora, sans-serif</code>. Si no carga, el texto salta de serif a sans-serif y cambia toda la métrica.</p></div>
+      <div class="card"><span class="idx">Razón 04</span><h4>Inter es de interfaz</h4><p>Diseñada específicamente para pantalla, 9 pesos, cifras tabulares, excelente legibilidad a tamaños pequeños, gratuita.</p></div>
+    </div>
+    <p><strong>Alternativa</strong> si el cliente prefiere no tocar nada: Montserrat + <strong>Roboto</strong>. Menos personalidad que Inter, pero resuelve el problema.</p>
+
+    <h3>Familias oficiales</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Rol</th><th>Familia</th><th>Pesos a cargar</th></tr></thead>
+      <tbody>
+        <tr><td>Display / Titulares</td><td class="mont" style="font-size:19px;font-weight:800">Montserrat</td><td>700 · 800</td></tr>
+        <tr><td>Cuerpo / Interfaz</td><td class="inter" style="font-size:19px;font-weight:600">Inter</td><td>400 · 500 · 600 · 700</td></tr>
+        <tr><td>Cifras y datos técnicos</td><td class="inter" style="font-size:19px;font-variant-numeric:tabular-nums">Inter · 1.234,56</td><td>500 · 600 con <code>tabular-nums</code></td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Total: 6 ficheros de fuente.</strong> Autoalojados con <code>font-display: swap</code> y <code>preload</code> de los dos críticos. Se elimina la carga desde Google Fonts para reducir peticiones y mejorar el cumplimiento del RGPD.</p>
+
+    <h3>Escala tipográfica</h3>
+    <p>Base 16 px, ratio 1,25.</p>
+    <div class="tw"><table class="scale-tbl">
+      <thead><tr><th>Token</th><th>Muestra</th><th>Escritorio</th><th>Móvil</th><th>Familia / Peso</th><th>Interlineado</th></tr></thead>
+      <tbody>
+        <tr><td><code>display-1</code></td><td style="font-weight:800;font-size:34px;line-height:1;text-transform:uppercase">Aa</td><td class="num">64 px</td><td class="num">36 px</td><td>Montserrat 800</td><td class="num">1,05</td></tr>
+        <tr><td><code>display-2</code></td><td style="font-weight:800;font-size:28px;line-height:1;text-transform:uppercase">Aa</td><td class="num">48 px</td><td class="num">30 px</td><td>Montserrat 800</td><td class="num">1,10</td></tr>
+        <tr><td><code>h2</code></td><td style="font-weight:700;font-size:24px">Aa</td><td class="num">36 px</td><td class="num">26 px</td><td>Montserrat 700</td><td class="num">1,15</td></tr>
+        <tr><td><code>h3</code></td><td style="font-weight:700;font-size:20px">Aa</td><td class="num">26 px</td><td class="num">22 px</td><td>Montserrat 700</td><td class="num">1,25</td></tr>
+        <tr><td><code>h4</code></td><td class="inter" style="font-weight:600;font-size:18px">Aa</td><td class="num">20 px</td><td class="num">18 px</td><td>Inter 600</td><td class="num">1,35</td></tr>
+        <tr><td><code>lead</code></td><td class="inter" style="font-weight:400;font-size:18px">Aa</td><td class="num">21 px</td><td class="num">18 px</td><td>Inter 400</td><td class="num">1,55</td></tr>
+        <tr><td><code>body</code></td><td class="inter" style="font-weight:400;font-size:17px">Aa</td><td class="num">18 px</td><td class="num">17 px</td><td>Inter 400</td><td class="num"><strong>1,65</strong></td></tr>
+        <tr><td><code>body-sm</code></td><td class="inter" style="font-weight:400;font-size:15px">Aa</td><td class="num">16 px</td><td class="num">15 px</td><td>Inter 400</td><td class="num">1,60</td></tr>
+        <tr><td><code>caption</code></td><td class="inter" style="font-weight:500;font-size:14px">Aa</td><td class="num">14 px</td><td class="num">13 px</td><td>Inter 500</td><td class="num">1,45</td></tr>
+        <tr><td><code>label</code></td><td class="inter" style="font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase">Aa</td><td class="num">13 px</td><td class="num">13 px</td><td>Inter 600 · uppercase</td><td class="num">1,20</td></tr>
+        <tr style="background:#FCF3F9"><td><code>button</code></td><td class="inter" style="font-weight:600;font-size:17px">Aa</td><td class="num"><strong>17 px</strong></td><td class="num"><strong>17 px</strong></td><td>Inter 600</td><td class="num">1,00</td></tr>
+        <tr><td><code>data-xl</code></td><td class="inter" style="font-weight:700;font-size:32px;font-variant-numeric:tabular-nums">4.000</td><td class="num">56 px</td><td class="num">40 px</td><td>Inter 700 · tabular</td><td class="num">1,00</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Reglas tipográficas</h3>
+    <div class="cards">
+      <div class="card hl"><span class="idx">Regla 01</span><h4>Las mayúsculas se limitan</h4><p><code>uppercase</code> solo en <code>label</code>, <code>button</code> (opcional) y <code>display-1/2</code> <strong>cuando el titular tiene 6 palabras o menos</strong>. Nunca en H3, párrafos ni titulares largos.</p></div>
+      <div class="card"><span class="idx">Regla 02</span><h4>Botones a 17 px</h4><p>Se sube de los 13 px actuales. Mejora legibilidad y contribuye a alcanzar los 48 px de área táctil.</p></div>
+      <div class="card"><span class="idx">Regla 03</span><h4>Interlineado de cuerpo a 1,65</h4><p>Se sube del 1,5 actual.</p></div>
+      <div class="card"><span class="idx">Regla 04</span><h4>Máximo 68 caracteres por línea</h4><p><code>max-width: 68ch</code> en todo texto corrido. Hoy hay párrafos de ancho completo de contenedor.</p></div>
+      <div class="card"><span class="idx">Regla 05</span><h4>Cifras técnicas en tabular</h4><p><code>font-variant-numeric: tabular-nums</code> obligatorio en tablas de especificaciones, precios y datos.</p></div>
+      <div class="card"><span class="idx">Regla 06</span><h4>Máximo dos pesos por bloque</h4><p>Sin excepciones.</p></div>
+    </div>
+  </section>
+
+  <section id="reticula">
+    <span class="sec-num">08</span>
+    <h2>Retícula, espaciado y elevación</h2>
+    <div class="rule"></div>
+
+    <div class="tw"><table>
+      <thead><tr><th>Parámetro</th><th>Valor</th></tr></thead>
+      <tbody>
+        <tr><td>Contenedor máximo</td><td class="num">1.280 px</td></tr>
+        <tr><td>Contenedor de texto</td><td class="num">720 px</td></tr>
+        <tr><td>Columnas</td><td class="num">12 escritorio · 8 tableta · 4 móvil</td></tr>
+        <tr><td>Gutter</td><td class="num">24 px escritorio · 16 px móvil</td></tr>
+        <tr><td>Margen lateral</td><td class="num">40 px escritorio · 20 px móvil</td></tr>
+        <tr><td>Puntos de ruptura</td><td class="num"><code>sm</code> ≥ 480 · <code>md</code> ≥ 768 · <code>lg</code> ≥ 1024 · <code>xl</code> ≥ 1280</td></tr>
+        <tr><td>Escala de espaciado (base 8)</td><td class="num">4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96 · 128 · 160</td></tr>
+        <tr><td>Padding vertical de sección</td><td class="num">96 px escritorio · 56 px móvil</td></tr>
+        <tr><td>Separación entre bloques</td><td class="num">48 px · 32 px</td></tr>
+        <tr><td>Separación título → contenido</td><td class="num">24 px · 16 px</td></tr>
+      </tbody>
+    </table></div>
+    <p>Esto es lo que hoy no existe: la web mezcla presets de Elementor con valores manuales y no tiene ritmo vertical.</p>
+
+    <h3>Radios de borde</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Elemento</th><th>Radio</th></tr></thead>
+      <tbody>
+        <tr><td>Botones</td><td><code>0px</code> — se conserva el canto vivo actual. Es correcto para el registro industrial.</td></tr>
+        <tr><td>Tarjetas, contenedores</td><td><code>2px</code></td></tr>
+        <tr><td>Campos de formulario</td><td><code>2px</code></td></tr>
+        <tr><td>Badges y píldoras</td><td><code>2px</code></td></tr>
+        <tr><td>Imágenes</td><td><code>0px</code></td></tr>
+      </tbody>
+    </table></div>
+    <p>El canto recto es una decisión de marca deliberada: comunica industria, herramienta, precisión. Es lo contrario del redondeado amable del SaaS.</p>
+
+    <h3>Elevación</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Nivel</th><th>Sombra</th><th>Uso</th></tr></thead>
+      <tbody>
+        <tr><td class="num">0</td><td>ninguna</td><td>Superficie base</td></tr>
+        <tr><td class="num">1</td><td><code>0 1px 2px rgba(14,18,23,.06), 0 1px 3px rgba(14,18,23,.10)</code></td><td>Tarjetas en reposo</td></tr>
+        <tr><td class="num">2</td><td><code>0 4px 8px rgba(14,18,23,.08), 0 2px 4px rgba(14,18,23,.06)</code></td><td>Tarjetas en hover, desplegables</td></tr>
+        <tr><td class="num">3</td><td><code>0 12px 24px rgba(14,18,23,.12)</code></td><td>Modales, cabecera fija al hacer scroll</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="componentes">
+    <span class="sec-num">09</span>
+    <h2>Componentes de interfaz</h2>
+    <div class="rule"></div>
+
+    <h3>Botones</h3>
+    <div class="spec">
+      <div class="meta">Especímenes · Inter 600, 17 px, radio 0, altura mínima 48 px</div>
+      <div class="btnrow">
+        <span class="jbtn p">Pedir presupuesto</span>
+        <span class="jbtn s">Llamar al 91 361 31 31</span>
+        <span class="jbtn t">Ver alturas y capacidades</span>
+        <span class="jbtn w">Escribir por WhatsApp</span>
+      </div>
+    </div>
+    <div class="tw"><table>
+      <thead><tr><th>Variante</th><th>Fondo</th><th>Texto</th><th>Borde</th><th>Hover</th><th>Uso</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Primario</strong></td><td><code>#AC0000</code></td><td><code>#FFFFFF</code></td><td>ninguno</td><td><code>#8A0000</code></td><td>Pedir presupuesto, Enviar. <strong>Uno por vista.</strong></td></tr>
+        <tr><td><strong>Secundario</strong></td><td>transparente</td><td><code>#1C3254</code></td><td><code>2px solid #1C3254</code></td><td>relleno azul, texto blanco</td><td>Llamar, Ver especificaciones</td></tr>
+        <tr><td><strong>Terciario</strong></td><td>transparente</td><td><code>#AC0000</code></td><td>subrayado en hover</td><td>subrayado</td><td>Navegación interna</td></tr>
+        <tr><td><strong>Sobre fondo oscuro</strong></td><td><code>#FFFFFF</code></td><td><code>#0E1217</code></td><td>ninguno</td><td><code>#EFBB20</code></td><td>CTA en secciones azules</td></tr>
+        <tr><td><strong>WhatsApp</strong></td><td><code>#25D366</code></td><td><code>#0E1217</code></td><td>ninguno</td><td>oscurecer 10 %</td><td>Botón fijo móvil</td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Comunes:</strong> altura mínima 48 px (móvil 52 px) · padding <code>16px 32px</code> · radio <code>0px</code> · transición <code>background-color 150ms ease</code> · foco visible obligatorio <code>outline: 3px solid #EFBB20; outline-offset: 2px</code>.</p>
+
+    <h3>Formularios</h3>
+    <ul>
+      <li>Altura de campo: <strong>52 px</strong></li>
+      <li>Borde <code>1px solid #D6DAE0</code>; en foco <code>2px solid #1C3254</code>. Radio <code>2px</code>.</li>
+      <li>Tipografía Inter 400, 17 px — <strong>nunca menos de 16 px</strong>: por debajo de 16 px iOS hace zoom automático al enfocar el campo y rompe la maquetación.</li>
+      <li>Etiqueta siempre visible <strong>encima</strong> del campo (Inter 600, 14 px, <code>#4A5561</code>). Nunca solo <em>placeholder</em>.</li>
+      <li>Obligatorios marcados con <code>*</code> en <code>#AC0000</code>. Error: borde <code>#B42318</code> + mensaje debajo a 14 px. Éxito: borde <code>#1B7A3D</code>.</li>
+    </ul>
+
+    <div class="callout dark">
+      <p class="big">Regla de oro: nunca más de 4 campos en un formulario de captación.</p>
+      <p style="margin:0">El formulario principal es: <strong>1)</strong> ¿Qué máquina necesita? (desplegable) · <strong>2)</strong> Provincia (desplegable) · <strong>3)</strong> Teléfono · <strong>4)</strong> Correo electrónico. La cualificación adicional (fecha de inicio, duración, empresa) va en un segundo paso o en la página de agradecimiento.</p>
+    </div>
+    <p><strong>Cumplimiento RGPD obligatorio:</strong> casilla de consentimiento <strong>no premarcada</strong>, enlace a la política de privacidad, finalidad del tratamiento explícita, y registro del consentimiento con marca de tiempo.</p>
+
+    <h3>Llamadas a la acción — biblioteca aprobada</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Contexto</th><th>CTA aprobado</th><th>Prohibido</th></tr></thead>
+      <tbody>
+        <tr><td>Formulario principal</td><td><strong>Pedir presupuesto — respuesta en 2 h</strong></td><td>Enviar</td></tr>
+        <tr><td>Botón de teléfono</td><td><strong>Llamar al 91 361 31 31</strong></td><td>Contacto</td></tr>
+        <tr><td>WhatsApp</td><td><strong>Escribir por WhatsApp</strong></td><td>Contáctanos</td></tr>
+        <tr><td>Página pilar</td><td><strong>Ver alturas y capacidades</strong></td><td>Ver todo</td></tr>
+        <tr><td>Ficha de máquina</td><td><strong>Pedir precio de esta máquina</strong></td><td>Leer más</td></tr>
+        <tr><td>Catálogo</td><td><strong>Recibir el catálogo de flota 2026</strong></td><td>Descarga nuestro catálogo</td></tr>
+        <tr><td>Sedes</td><td><strong>Pedir presupuesto a mi sede</strong></td><td>Encuentre su sede más cercana</td></tr>
+        <tr><td>Ficha técnica</td><td><strong>Descargar ficha técnica (PDF)</strong></td><td>Más información</td></tr>
+        <tr><td>Empresa</td><td><strong>Ver la flota y los 12 centros</strong></td><td>Conozca más sobre nosotros</td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Estructura de todo CTA:</strong> <code>verbo</code> + <code>qué obtengo</code> + <code>(cuándo / formato)</code>.</p>
+
+    <h3>Tarjeta de máquina</h3>
+    <p>El componente más importante del rediseño. Las tres o cuatro especificaciones visibles <strong>sin clic</strong> son lo que hoy está encerrado en PDF. Este único cambio resuelve simultáneamente el problema de SEO, el de conversión y el de visibilidad en buscadores con IA.</p>
+    <div class="spec">
+      <div class="meta">Especimen</div>
+      <div class="jcard">
+        <div class="img">Foto de la máquina · 4:3</div>
+        <div class="body">
+          <div class="lab">Plataformas de tijera</div>
+          <h5>Tijera eléctrica compacta</h5>
+          <dl>
+            <div class="r"><span>Altura de trabajo</span><span>10,00 m</span></div>
+            <div class="r"><span>Capacidad de carga</span><span>320 kg</span></div>
+            <div class="r"><span>Peso</span><span>1.550 kg</span></div>
+            <div class="r"><span>Motor</span><span>Eléctrico</span></div>
+          </dl>
+          <div class="acts"><span class="jbtn p">Pedir precio</span><span class="jbtn t" style="padding:13px 4px">Ficha PDF</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Bloque de cifra destacada</h3>
+    <div class="figures">
+      <div><b>4.000+</b><span>Máquinas</span></div>
+      <div><b>1987</b><span>Desde</span></div>
+      <div><b>12</b><span>Centros</span></div>
+      <div><b>&lt;3</b><span>Años de flota</span></div>
+    </div>
+
+    <h3>Barra fija de acción en móvil</h3>
+    <p><strong>Componente nuevo, hoy inexistente.</strong> Fija en la parte inferior, visible en todas las páginas por debajo de 768 px. Altura 64 px, fondo blanco, sombra de nivel 3.</p>
+    <div class="spec">
+      <div class="meta">Especimen · &lt; 768 px</div>
+      <div class="mbar">
+        <div style="border:1px solid #D6DAE0;color:#1C3254">📞 Llamar</div>
+        <div style="background:#25D366;color:#0E1217">💬 WhatsApp</div>
+        <div style="background:#AC0000;color:#fff">Presupuesto</div>
+      </div>
+    </div>
+    <div class="callout teal">
+      <p style="margin:0">Con una home de <strong>10.185 px</strong> en móvil, este componente por sí solo es probablemente la mayor ganancia unitaria de conversión de todo el proyecto.</p>
+    </div>
+  </section>
+
+  <section id="fotografia">
+    <span class="sec-num">10</span>
+    <h2>Fotografía e iconografía</h2>
+    <div class="rule"></div>
+
+    <div class="dodont">
+      <div class="do">
+        <h4>Qué sí</h4>
+        <ul>
+          <li><strong>Máquina trabajando, no aparcada.</strong> Plataforma con operario en la cesta, miniexcavadora con la cuchara en tierra, carretilla moviendo palé.</li>
+          <li><strong>Escala visible.</strong> Un operario da la medida de la máquina. Sin referencia humana no se percibe el tamaño.</li>
+          <li><strong>Contexto real</strong> de obra o planta: andamios, encofrado, nave industrial, muelle de carga.</li>
+          <li><strong>Luz natural</strong>, contraste medio-alto, saturación natural.</li>
+          <li><strong>Vertical rojo:</strong> composiciones donde el rojo del logotipo o de un elemento de obra ancle el color de marca.</li>
+          <li><strong>EPI siempre correctos.</strong> Casco, chaleco, arnés en plataformas. Con ISO 45001, una foto de alguien sin arnés en una cesta es un problema de credibilidad y de cumplimiento.</li>
+        </ul>
+      </div>
+      <div class="dont">
+        <h4>Qué no</h4>
+        <ul>
+          <li>Banco de imágenes genérico de «hombres de negocios con casco señalando planos»</li>
+          <li>Máquinas sobre fondo blanco recortado, salvo en fichas de producto</li>
+          <li>Filtros, viñeteados, duotonos</li>
+          <li>Cielos artificialmente saturados</li>
+          <li>Fotos con el logo de un competidor visible en la máquina</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Requisitos técnicos</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Uso</th><th>Proporción</th><th>Ancho servido</th><th>Formato</th></tr></thead>
+      <tbody>
+        <tr><td>Hero</td><td>21:9 escritorio · 4:5 móvil</td><td class="num">1920 / 800 px</td><td>AVIF con fallback WebP</td></tr>
+        <tr><td>Cabecera de sección</td><td>16:9</td><td class="num">1440 px</td><td>WebP</td></tr>
+        <tr><td>Tarjeta de máquina</td><td>4:3</td><td class="num">640 px</td><td>WebP</td></tr>
+        <tr><td>Ficha de producto</td><td>1:1 sobre blanco</td><td class="num">800 px</td><td>WebP</td></tr>
+        <tr><td>Miniatura</td><td>16:9</td><td class="num">400 px</td><td>WebP</td></tr>
+      </tbody>
+    </table></div>
+
+    <h4>Obligatorio en el 100 % de las imágenes</h4>
+    <ul>
+      <li>Atributo <code>alt</code> descriptivo <span class="tag crit">Hoy: 0 de 16</span></li>
+      <li>Nombre de fichero semántico: <code>plataforma-tijera-electrica-10m-jofemesa.webp</code>, no <code>1513166312_img1.-15-11.jpg</code></li>
+      <li><code>width</code> y <code>height</code> declarados para evitar salto de maquetación (CLS)</li>
+      <li><code>loading="lazy"</code> fuera de la primera pantalla; <code>fetchpriority="high"</code> en el hero</li>
+      <li>Servida al tamaño en que se muestra — hoy hay imágenes de 480×640 mostradas a 480×260</li>
+    </ul>
+
+    <h3>Iconografía</h3>
+    <p><strong>Se elimina Font Awesome 5</strong> (hoy se cargan tres variantes: Solid, Regular y Brands, con su CSS correspondiente). <strong>Se adopta Lucide</strong> (o Phosphor), en SVG en línea:</p>
+    <ul>
+      <li>Grosor de trazo 2 px · cantos rectos (<code>stroke-linecap: square</code>) para mantener el registro industrial</li>
+      <li>Tamaños 16 / 20 / 24 / 32 px · color <code>currentColor</code> · sin relleno, solo contorno</li>
+      <li>Los iconos con significado técnico (altura, carga, peso, alcance, motor) llevan <strong>siempre</strong> etiqueta de texto al lado. Un icono nunca comunica solo un dato técnico.</li>
+      <li>Excepción: glifos oficiales de marcas de redes sociales y WhatsApp.</li>
+    </ul>
+  </section>
+
+  <section id="incorrectos">
+    <span class="sec-num">11</span>
+    <h2>Usos incorrectos</h2>
+    <div class="rule"></div>
+    <div class="tw"><table>
+      <thead><tr><th style="width:46%">No hacer</th><th>Por qué</th></tr></thead>
+      <tbody>
+        <tr><td>Usar <code>#F60000</code>, <code>#D30000</code> o <code>#BF1F1F</code></td><td>Se eliminan del proyecto. Solo existe <code>#AC0000</code>.</td></tr>
+        <tr><td>Pintar de rojo un botón de navegación secundaria</td><td>El rojo es exclusivo de la acción de conversión.</td></tr>
+        <tr><td>Pintar de negro el botón de contacto</td><td>Es el error actual: invierte la jerarquía.</td></tr>
+        <tr><td>Poner sobre <code>#EFBB20</code> texto que no sea <code>#0E1217</code></td><td>Contraste insuficiente <span class="ratio fail">1,79:1</span></td></tr>
+        <tr><td>Usar <code>#000000</code> para texto</td><td>Se usa <code>#0E1217</code>.</td></tr>
+        <tr><td>Poner en mayúsculas un titular de más de 6 palabras</td><td>Ilegible. Es el fallo tipográfico principal actual.</td></tr>
+        <tr><td>Usar Lora</td><td>Sustituida por Inter.</td></tr>
+        <tr><td>Botones con texto menor de 17 px</td><td>Legibilidad y área táctil.</td></tr>
+        <tr><td>Elementos clicables por debajo de 48 × 48 px</td><td>Hoy el 36 % lo incumple.</td></tr>
+        <tr><td>Formularios de más de 4 campos en captación</td><td>Cada campo cuesta conversión.</td></tr>
+        <tr><td>Colocar el logotipo sobre el rojo corporativo</td><td>Pérdida de legibilidad e identidad.</td></tr>
+        <tr><td>Publicar una imagen sin <code>alt</code></td><td>Accesibilidad (WCAG A) y SEO.</td></tr>
+        <tr><td>Publicar una imagen sin nombre de fichero semántico</td><td>SEO de imágenes.</td></tr>
+        <tr><td>Poner «amplia gama», «última generación» o «líder del sector»</td><td>No dicen nada.</td></tr>
+        <tr><td>Enterrar una especificación técnica en un PDF</td><td>Es el fallo de contenido principal actual.</td></tr>
+        <tr><td>Dejar un CTA que diga «Ver todo» o «Leer más»</td><td>Ver biblioteca aprobada.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- ============ PARTE C ============ -->
+  <div class="callout dark" style="margin:70px 0 56px">
+    <p class="big" style="margin:0">Parte C · Contenido y datos</p>
+  </div>
+
+  <section id="servicios">
+    <span class="sec-num">12</span>
+    <h2>Inventario de servicios</h2>
+    <div class="rule"></div>
+
+    <h3>Alquiler de maquinaria de elevación</h3>
+    <div class="cards">
+      <div class="card"><span class="idx">Plataformas elevadoras</span><p>Tijera (eléctricas y diésel) · Telescópicas · Articuladas · Orugas compactas · Sobre camión</p></div>
+      <div class="card"><span class="idx">Manutención</span><p>Manipuladores telescópicos · Carretillas industriales · Carretillas todoterreno · Máquinas de almacén</p></div>
+    </div>
+
+    <h3>Alquiler de maquinaria de obra</h3>
+    <p>Miniexcavadoras · Minicargadoras · Dumper · Rodillos · Compresores</p>
+
+    <h3>Alquiler de energía e iluminación</h3>
+    <p>Grupos electrógenos · Torres de iluminación</p>
+    <div class="callout teal">
+      <p style="margin:0"><strong>Nota estratégica.</strong> Hoy están mezclados dentro de «maquinaria de obra». Merecen su propia página pilar: tienen una intención de búsqueda distinta (eventos, emergencias, obra sin acometida) y un ciclo de compra más corto y más rentable.</p>
+    </div>
+
+    <h3>Venta</h3>
+    <p>Carretillas elevadoras nuevas · Carretillas de ocasión revisadas y garantizadas · Recambios originales y compatibles.</p>
+    <p><strong>Pendiente de cliente:</strong> listado de marcas con las que se trabaja. Hoy la web dice «primeras marcas» sin nombrar ninguna. Es un dato de búsqueda de alto valor.</p>
+
+    <h3>Servicios industriales</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Servicio</th><th>Descripción actual en web</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Puertos</strong></td><td>Soluciones para carga/descarga, mantenimiento y operaciones logísticas portuarias. Estiba en puertos de Asturias y Levante.</td></tr>
+        <tr><td><strong>Embalado</strong></td><td>Gestión de almacenes siderúrgicos, descarga, recepción, embalado y expedición de materiales.</td></tr>
+        <tr><td><strong>Mantenimiento</strong></td><td>Reparación de maquinaria industrial, carretillas elevadoras, palas cargadoras, retroexcavadoras.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout">
+      <p style="margin:0"><strong>Nota estratégica.</strong> Son tres negocios B2B distintos del alquiler, con compradores distintos y ciclos de venta largos. En el rediseño van a <strong>una sola página, separada del embudo de alquiler</strong>, con su propio formulario. No deben contaminar las audiencias de las campañas de alquiler.</p>
+    </div>
+  </section>
+
+  <section id="sedes">
+    <span class="sec-num">13</span>
+    <h2>Directorio de las 12 sedes</h2>
+    <div class="rule"></div>
+    <div class="tw"><table>
+      <thead><tr><th>Comunidad</th><th>Centro</th><th>Dirección</th><th>Teléfono</th><th>Correo</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="3"><strong>Madrid</strong></td><td>Delegación Madrid<br><em>Sede central</em></td><td>Ctra. Madrid-Barcelona (A-2), Km 15.300 · 28022 Madrid</td><td class="num">91 361 31 31</td><td>jofemesamadrid@</td></tr>
+        <tr><td>Maquinaria Madrid</td><td>C/ Mar Mediterráneo con Mar Adriático · 28830 San Fernando de Henares</td><td class="num">91 907 50 65</td><td>maquinaria@</td></tr>
+        <tr><td>Ferretería Madrid</td><td>P.I. de Las Nieves, Avda. de las Nieves · 28935 Móstoles</td><td class="num">91 765 71 70</td><td>ferreteria@</td></tr>
+        <tr><td rowspan="4"><strong>C. Valenciana</strong></td><td>Delegación Valencia</td><td>P.I. Parc Sagunt, C/ Braç de la Creu s/n · 46520 Puerto de Sagunto</td><td class="num">962 680 581</td><td>valencia@</td></tr>
+        <tr><td>Maquinaria Valencia</td><td>P.I. Ingruinsa, C/ Almacén de Hierro 16 · 46520 Puerto de Sagunto</td><td class="num">96 324 48 91</td><td>maquinarialevante@</td></tr>
+        <tr><td>Delegación Castellón</td><td>P. Les Forques, Camí Plá de Museros, nave 3 · 12550 Almassora</td><td class="num">902 220 252</td><td>castellon@</td></tr>
+        <tr><td>Delegación Alicante</td><td>Carr. D'Ocaña 64D · 03006 Alicante</td><td class="num">965 74 21 75</td><td>alquileresalicante@</td></tr>
+        <tr><td rowspan="2"><strong>Asturias</strong></td><td>Delegación Asturias</td><td>P.E. Pdo. Asturias, Avda. del Aluminio 20 · 33417 Avilés</td><td class="num">985 985 212</td><td>jofemesa@</td></tr>
+        <tr><td>Manutención Asturias</td><td>P.E. Pdo. Asturias, Avda. de la Siderurgia · 33490 Avilés</td><td class="num">985 985 507</td><td>ventas@</td></tr>
+        <tr><td rowspan="2"><strong>Andalucía</strong></td><td>Delegación Málaga</td><td>P.I. Guadalhorce, C/ Hermanas Bronte 70 · 29004 Málaga</td><td class="num">951 173 730</td><td>jofemesamalaga@</td></tr>
+        <tr><td>Delegación Sevilla</td><td>P.I. Polysol, C/ Polysol Tres 6 · 41500 Alcalá de Guadaíra</td><td class="num">955 77 63 63</td><td>jofemesasevilla@</td></tr>
+        <tr><td><strong>Castilla y León</strong></td><td>Delegación Valladolid</td><td>P. San Cristóbal, C/ Turquesa 47 · 47012 Valladolid</td><td class="num">983 525 363</td><td>valladolid@</td></tr>
+      </tbody>
+    </table></div>
+    <p><em>Todos los correos son <code>@jofemesa.com</code>.</em></p>
+
+    <h3>Datos que faltan y hay que recabar del cliente</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Dato</th><th>Estado</th><th>Por qué importa</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Horario de apertura de cada sede</strong></td><td><span class="tag crit">Ausente en las 12</span></td><td>Fricción para el usuario, señal de SEO local, dato que Google cruza con Business Profile</td></tr>
+        <tr><td>Coordenadas GPS exactas</td><td><span class="tag crit">Ausente</span></td><td>Mapa interactivo y <code>LocalBusiness</code> schema</td></tr>
+        <tr><td>Foto exterior de cada instalación</td><td><span class="tag crit">Ausente</span></td><td>Confianza: «existe de verdad y está a 20 minutos de mi obra»</td></tr>
+        <tr><td>Responsable de cada delegación</td><td><span class="tag crit">Ausente</span></td><td>Personalización del contacto</td></tr>
+        <tr><td>Radio de entrega de cada sede</td><td><span class="tag crit">Ausente</span></td><td>Argumento de plazo por provincia</td></tr>
+        <tr><td>Qué líneas sirve cada centro</td><td><span class="tag crit">Ausente</span></td><td>Hay centros de «maquinaria», «manutención» y «ferretería»: hoy el usuario no sabe a cuál llamar</td></tr>
+        <tr><td>Fichas de Google Business Profile</td><td><span class="tag crit">Sin verificar</span></td><td>12 fichas verificadas = 12 activos de captación local gratuitos</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout">
+      <p style="margin:0">La web dice «7 delegaciones estratégicas» en <code>/nosotros/</code> pero lista <strong>12 centros</strong> en <code>/sedes-jofemesa/</code>. Hay que decidir el relato: 12 es un número mejor.</p>
+    </div>
+  </section>
+
+  <section id="cifras">
+    <span class="sec-num">14</span>
+    <h2>Cifras y activos de confianza</h2>
+    <div class="rule"></div>
+
+    <div class="tw"><table>
+      <thead><tr><th>Dato</th><th>Valor</th><th>Uso recomendado</th></tr></thead>
+      <tbody>
+        <tr><td>Año de fundación</td><td class="num"><strong>1987</strong></td><td>Barra de confianza, «Quiénes somos»</td></tr>
+        <tr><td>Años de actividad</td><td class="num"><strong>39 años</strong> (2026)</td><td>Barra de confianza</td></tr>
+        <tr><td>Máquinas en flota</td><td class="num"><strong>Más de 4.000</strong></td><td>Hero, barra de confianza</td></tr>
+        <tr style="background:#F2FBFA"><td>Antigüedad media de la flota</td><td class="num"><strong>Menos de 3 años</strong></td><td><strong>Hero.</strong> Es el mejor argumento de la empresa.</td></tr>
+        <tr><td>Centros operativos</td><td class="num"><strong>12</strong></td><td>Hero, sedes</td></tr>
+        <tr><td>Provincias con instalación</td><td class="num"><strong>9</strong></td><td>Campañas geolocalizadas</td></tr>
+        <tr><td>Países</td><td class="num"><strong>2</strong> (España y Portugal)</td><td>Corporativo</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="callout dark">
+      <h4>Corregir la inconsistencia actual</h4>
+      <p style="margin:0">La home dice «más de 30 años» en un párrafo y «más de 35 años» en el eslogan de la sección siguiente, mientras <code>/nosotros/</code> indica 1987. <strong>Se unifica en «Desde 1987»</strong>, que es incontestable, no caduca y no hay que actualizar cada año.</p>
+    </div>
+
+    <h3>Certificaciones</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Certificación</th><th>Ámbito</th><th>PDF publicado</th></tr></thead>
+      <tbody>
+        <tr><td><strong>ISO 9001</strong></td><td>Gestión de la calidad</td><td><code>9001_JOFEMESA.pdf</code></td></tr>
+        <tr><td><strong>ISO 14001</strong></td><td>Gestión ambiental</td><td><code>14001_JOFEMESA.pdf</code></td></tr>
+        <tr><td><strong>ISO 45001</strong></td><td>Seguridad y salud en el trabajo</td><td><code>45001_JOFEMESA.pdf</code></td></tr>
+        <tr><td><strong>Política de sistema de gestión</strong></td><td>Documento corporativo (mayo 2023)</td><td><code>POLITICA-SISTEMA-GESTION-MAYO-2023.pdf</code></td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>IPAF</strong> — International Powered Access Federation. Relevante para formación de operadores de plataformas y licitaciones internacionales. · <strong>ANAPAT</strong> — Asociación Nacional de Alquiler de Maquinaria y Plataformas Aéreas de Trabajo. Referencia sectorial en España.</p>
+
+    <h3>Activos de confianza que NO existen y hay que crear</h3>
+    <p class="lead">Este es el trabajo de contenido más rentable del proyecto.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Activo</th><th>Prioridad</th><th>Qué se necesita del cliente</th></tr></thead>
+      <tbody>
+        <tr><td><strong>3 casos de éxito con cifras</strong></td><td><span class="tag crit">Alta</span></td><td>Obra, máquina, plazo, resultado. Ej.: «45 plataformas articuladas durante 8 meses en la ampliación de X, cero días de parón por avería».</td></tr>
+        <tr><td><strong>Logotipos de clientes</strong></td><td><span class="tag crit">Alta</span></td><td>8-12 logos con autorización de uso</td></tr>
+        <tr><td><strong>3-5 testimonios</strong></td><td><span class="tag crit">Alta</span></td><td>Con nombre, cargo y empresa. Vale un audio de WhatsApp de 30 segundos transcrito.</td></tr>
+        <tr><td><strong>Marcas de maquinaria</strong></td><td><span class="tag crit">Alta</span></td><td>Listado. Hoy solo se dice «primeras marcas».</td></tr>
+        <tr><td><strong>Compromiso de plazo publicable</strong></td><td><span class="tag crit">Alta</span></td><td>«Presupuesto en X horas» / «Entrega en X h». Sin este dato no hay CTA con urgencia.</td></tr>
+        <tr><td>Reseñas de Google incrustadas</td><td><span class="tag warn">Media</span></td><td>Requiere 12 fichas de Google Business Profile verificadas</td></tr>
+        <tr><td>Fotografía propia de las 12 instalaciones</td><td><span class="tag warn">Media</span></td><td>Una foto exterior por centro</td></tr>
+        <tr><td>Número de operaciones/año o clientes activos</td><td><span class="tag neu">Baja</span></td><td>Refuerza escala</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="descargables">
+    <span class="sec-num">15</span>
+    <h2>Activos descargables</h2>
+    <div class="rule"></div>
+    <div class="tw"><table>
+      <thead><tr><th>Activo</th><th>Fichero</th><th>Estado actual</th></tr></thead>
+      <tbody>
+        <tr><td>Catálogo de flota</td><td><code>8101-JOFEMEv2.pdf</code></td><td><span class="tag crit">Descarga libre sin capturar correo</span></td></tr>
+        <tr><td>Certificados ISO 9001 / 45001 / 14001</td><td>3 PDF</td><td><span class="tag ok">Correcto en abierto</span></td></tr>
+        <tr><td>Política de sistema de gestión</td><td>1 PDF</td><td><span class="tag ok">Correcto en abierto</span></td></tr>
+        <tr><td>Fichas técnicas de plataformas de tijera</td><td>6 PDF</td><td><span class="tag crit">Contenido técnico enterrado en PDF</span></td></tr>
+        <tr><td>Manuales de uso y seguridad</td><td>6 PDF</td><td><span class="tag ok">Correcto en abierto</span></td></tr>
+        <tr><td>Vídeo de presentación</td><td>—</td><td><span class="tag warn">Buen activo, mal ubicado</span></td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Estrategia de acceso</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Activo</th><th>Acceso</th><th>Razón</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Catálogo de flota 2026</strong></td><td><strong>🔒 Tras formulario</strong> (nombre, empresa, correo, teléfono, provincia)</td><td>Es el imán de leads principal. Un catálogo completo de flota tiene valor percibido alto y atrae exactamente al comprador que interesa.</td></tr>
+        <tr><td>Fichas técnicas individuales</td><td>🔓 Abiertas <strong>+ especificaciones también en HTML</strong></td><td>El PDF es para el técnico que archiva; el HTML es para Google, para la IA y para el usuario que compara.</td></tr>
+        <tr><td>Manuales de uso y seguridad</td><td>🔓 Abiertos</td><td>Activo de confianza y de servicio. Cerrarlos sería mezquino y no aportaría leads de calidad.</td></tr>
+        <tr><td>Certificados ISO</td><td>🔓 Abiertos</td><td>Requisito de licitación. Deben ser accesibles en un clic.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Nuevos imanes de leads propuestos</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Imán</th><th>Formato</th><th>Para quién</th><th>Campos</th></tr></thead>
+      <tbody>
+        <tr><td>Catálogo de flota 2026</td><td>PDF</td><td>Todos</td><td class="num">5</td></tr>
+        <tr><td>Guía: qué plataforma necesita según altura y acceso</td><td>PDF, 6-8 páginas</td><td>Jefe de obra</td><td class="num">3</td></tr>
+        <tr><td>Tarifario orientativo por familias</td><td>PDF</td><td>Compras, autónomos</td><td class="num">4</td></tr>
+        <tr><td>Checklist de seguridad en trabajos en altura</td><td>PDF, 1 página</td><td>Prevención, jefe de obra</td><td class="num">2</td></tr>
+        <tr><td>Calculadora: alquilar o comprar carretilla</td><td>Herramienta web</td><td>Mantenimiento industrial</td><td class="num">4 al ver el resultado</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="redes">
+    <span class="sec-num">16</span>
+    <h2>Presencia digital y redes</h2>
+    <div class="rule"></div>
+    <div class="tw"><table>
+      <thead><tr><th>Canal</th><th>URL / identificador</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td>Web oficial</td><td>jofemesa.com</td><td><span class="tag ok">Activa</span></td></tr>
+        <tr><td>Entorno de pruebas auditado</td><td>jofemesa.unportfolio10.com</td><td><span class="tag neu">noindex, nofollow</span></td></tr>
+        <tr><td>Facebook</td><td><code>/pages/Jofemesa/167997013234166</code></td><td><span class="tag warn">URL antigua, sin vanity</span></td></tr>
+        <tr><td>X (Twitter)</td><td><code>@jofemesa</code></td><td><span class="tag warn">Revisar actividad</span></td></tr>
+        <tr><td>Instagram</td><td><code>@jofemesaempresa</code></td><td><span class="tag warn">Identificador distinto del de X/Facebook</span></td></tr>
+        <tr><td>LinkedIn</td><td><code>/company/27107885/</code></td><td><span class="tag crit">URL numérica sin vanity</span></td></tr>
+        <tr><td>YouTube</td><td><code>/channel/UCGCI-Ea_DphwoPyriuXVAeA</code></td><td><span class="tag crit">Sin <code>@handle</code></span></td></tr>
+        <tr><td>Google Business Profile</td><td>—</td><td><span class="tag crit">Sin verificar en las 12 sedes</span></td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="cards">
+      <div class="card"><span class="idx">Acción 01</span><h4>Unificar el identificador</h4><p>Hoy hay <code>jofemesa</code> y <code>jofemesaempresa</code>. Debe ser uno.</p></div>
+      <div class="card"><span class="idx">Acción 02</span><h4>Reclamar los vanity URL</h4><p>LinkedIn (<code>/company/jofemesa</code>) y YouTube (<code>@jofemesa</code>).</p></div>
+      <div class="card hl"><span class="idx">Acción 03</span><h4>Verificar las 12 fichas de Google</h4><p>El activo de captación local de mayor retorno y coste cero: 12 fichas con horarios, fotos, categorías correctas y reseñas activas.</p></div>
+      <div class="card"><span class="idx">Acción 04</span><h4>Homogeneizar el avatar</h4><p>Isotipo cuadrado en las 5 redes.</p></div>
+    </div>
+  </section>
+
+  <section id="diccionario">
+    <span class="sec-num">17</span>
+    <h2>Diccionario del sector</h2>
+    <div class="rule"></div>
+    <p class="lead">Terminología a usar de forma consistente en toda la web y en las campañas. Los términos de la primera columna son los que el usuario busca.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Término correcto</th><th>Variantes que también se buscan</th><th>No usar</th></tr></thead>
+      <tbody>
+        <tr><td>Plataforma elevadora</td><td>PEMP, plataforma aérea de trabajo, elevador de personas</td><td>«Elevador» a secas</td></tr>
+        <tr><td>Plataforma de tijera</td><td>Tijera elevadora, plataforma vertical</td><td>«Tijera» a secas en titular</td></tr>
+        <tr><td>Plataforma articulada</td><td>Brazo articulado</td><td>—</td></tr>
+        <tr><td>Plataforma telescópica</td><td>Brazo telescópico</td><td>—</td></tr>
+        <tr><td>Manipulador telescópico</td><td>Manitou (marca como genérico), telehandler</td><td>—</td></tr>
+        <tr><td>Carretilla elevadora</td><td>Toro (uso coloquial), forklift</td><td>—</td></tr>
+        <tr><td>Carretilla todoterreno</td><td>Carretilla 4×4, carretilla de obra</td><td>—</td></tr>
+        <tr><td>Máquina de almacén</td><td>Transpaleta, apilador, recogepedidos</td><td>—</td></tr>
+        <tr><td>Miniexcavadora</td><td>Mini retro, excavadora pequeña</td><td>—</td></tr>
+        <tr><td>Minicargadora</td><td>Bobcat (marca como genérico)</td><td>—</td></tr>
+        <tr><td>Dumper</td><td>Volquete, motovolquete</td><td>—</td></tr>
+        <tr><td>Rodillo compactador</td><td>Compactadora, pisón</td><td>—</td></tr>
+        <tr><td>Grupo electrógeno</td><td>Generador, generador eléctrico</td><td>—</td></tr>
+        <tr><td>Torre de iluminación</td><td>Torre de luz, foco de obra</td><td>—</td></tr>
+        <tr><td>Altura de trabajo</td><td>Altura máxima de trabajo</td><td>«Altura» a secas</td></tr>
+        <tr><td>Capacidad de carga</td><td>Carga útil, capacidad de la cesta</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout">
+      <p style="margin:0"><strong>Nota SEO.</strong> «Bobcat», «Manitou» y «Toro» se usan como genéricos en el sector español. Conviene mencionarlos en el cuerpo del texto como sinónimos coloquiales, no en los titulares — por respeto a la marca ajena y por precisión técnica.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="doc-foot">
+  <div class="shell">
+    <span class="logo logo--light"><span class="lg-a">Lead</span><span class="lg-b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="lg-ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="lg-bar" d="M12 2.6v8.4"/></svg></span>
+    <nav>
+      <a href="01-Auditoria-Web-Actual.html">01 Auditoría</a>
+      <a href="02-Manual-de-Marca.html">02 Manual de marca</a>
+      <a href="03-Arquitectura-Rediseno.html">03 Arquitectura</a>
+      <a href="04-Propuesta-Comercial.html">04 Propuesta comercial</a>
+    </nav>
+    <span>Documento 02 de 04 · Julio 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>

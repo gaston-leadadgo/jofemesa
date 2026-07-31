@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>JOFEMESA × LeadadGo · Documentación del proyecto</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1A1449;--navy2:#1D1A55;--deep:#100D2E;
+  --mag:#B73C8E;--magl:#C9529F;
+  /* --teal para rellenos; --teal-ink para texto sobre fondo claro (5,75:1) */
+  --teal:#3BB8B2;--teal-ink:#12726D;
+  /* --t3 a 4,62:1 sobre blanco: cumple WCAG AA */
+  --mist:#F0F3FA;--border:#DEE3F0;--t2:#545E7B;--t3:#6B7492;
+  --fd:'Barlow Condensed','Arial Narrow',sans-serif;
+  --fb:'Outfit',-apple-system,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--fb);font-size:17px;line-height:1.65;color:var(--navy);background:var(--mist);-webkit-font-smoothing:antialiased}
+.w{max-width:1120px;margin:0 auto;padding:0 40px}
+@media(max-width:820px){.w{padding:0 22px}}
+
+.hero{background:var(--navy);color:#fff;position:relative;overflow:hidden;padding:72px 0 66px}
+.hero::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(950px 480px at 84% -12%,rgba(183,60,142,.48),transparent 62%),
+  radial-gradient(680px 380px at -4% 108%,rgba(59,184,178,.18),transparent 60%)}
+.hero .w{position:relative}
+.hero .top{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-bottom:58px;flex-wrap:wrap}
+.kick{font-family:var(--fd);font-size:14px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--magl);margin:0 0 12px}
+h1{font-family:var(--fd);font-size:clamp(42px,6.6vw,88px);font-weight:800;line-height:.92;letter-spacing:-.02em;text-transform:uppercase;margin:0 0 22px}
+h1 em{font-style:normal;color:var(--magl)}
+.hero p{font-size:20px;font-weight:200;color:rgba(255,255,255,.8);max-width:600px;margin:0}
+.hero .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px}
+.hero .meta span{font-family:var(--fd);font-size:14px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;border:1px solid rgba(255,255,255,.24);color:rgba(255,255,255,.88)}
+
+main{padding:64px 0 90px}
+.sect{font-family:var(--fd);font-size:14px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--mag);margin:0 0 8px}
+h2{font-family:var(--fd);font-size:clamp(28px,3.4vw,42px);font-weight:800;line-height:1;letter-spacing:-.012em;text-transform:uppercase;margin:0 0 10px}
+.sub{font-size:19px;font-weight:300;color:var(--t2);max-width:70ch;margin:0 0 30px}
+.rule{height:4px;width:60px;background:var(--mag);margin:0 0 24px}
+
+.docs{display:grid;gap:18px;margin:0 0 56px}
+.doc{
+  display:grid;grid-template-columns:96px 1fr auto;gap:26px;align-items:center;
+  background:#fff;border:1px solid var(--border);padding:26px 30px;
+  text-decoration:none;color:inherit;transition:border-color .16s,transform .16s,box-shadow .16s
+}
+.doc:hover{border-color:var(--mag);transform:translateY(-2px);box-shadow:0 14px 34px rgba(26,20,73,.1)}
+.doc .n{font-family:var(--fd);font-size:56px;font-weight:800;line-height:.85;color:var(--t3);letter-spacing:-.03em;transition:color .16s}
+.doc:hover .n{color:var(--mag)}
+.doc h3{font-family:var(--fd);font-size:clamp(24px,2.4vw,32px);font-weight:800;text-transform:uppercase;line-height:1;margin:0 0 7px}
+.doc p{font-size:16px;color:var(--t2);margin:0}
+.doc .go{font-family:var(--fd);font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mag);white-space:nowrap}
+.doc.client{border-left:6px solid var(--teal)}
+.doc.client .n{color:var(--teal-ink)}
+.doc.client:hover{border-color:var(--teal)}
+.doc.client:hover .n{color:var(--teal-ink)}
+.doc.client .go{color:var(--teal-ink)}
+.doc.internal{border-left:6px solid var(--mag)}
+@media(max-width:760px){.doc{grid-template-columns:1fr;gap:12px}.doc .n{font-size:40px}}
+
+.badge{display:inline-block;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;margin-bottom:9px}
+.badge.cli{background:var(--teal);color:#06342F}
+.badge.int{background:var(--mag);color:#fff}
+
+.warn{background:var(--navy);color:#fff;border-left:6px solid var(--magl);padding:30px 34px;margin:0 0 46px}
+.warn h3{font-family:var(--fd);font-size:29px;font-weight:800;text-transform:uppercase;line-height:1.05;margin:0 0 12px}
+.warn p{margin:0 0 12px;color:rgba(255,255,255,.84);font-size:16.5px}
+.warn p:last-child{margin:0}
+.warn strong{color:#fff}
+.warn code{font-family:ui-monospace,Consolas,monospace;font-size:.88em;background:rgba(255,255,255,.12);padding:2px 6px}
+
+footer{background:var(--deep);color:rgba(255,255,255,.6);padding:38px 0;font-size:14.5px}
+footer .w{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+
+.logo{display:inline-flex;align-items:center;gap:1px;font-weight:800;letter-spacing:-.035em;line-height:1;white-space:nowrap}
+.logo .a{color:var(--navy)}.logo .b{color:var(--mag)}
+.logo svg{display:block;margin-left:.05em;margin-bottom:.07em;overflow:visible}
+.logo .ring{stroke:var(--navy)}.logo .bar{stroke:var(--mag)}
+.logo.lt .a{color:#fff}.logo.lt .b{color:var(--magl)}
+.logo.lt .ring{stroke:#fff}.logo.lt .bar{stroke:var(--magl)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="w">
+    <div class="top">
+      <span class="logo lt" style="font-size:28px"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span>
+      <span class="kick" style="margin:0">Julio 2026</span>
+    </div>
+    <p class="kick">Proyecto · JOFEMESA</p>
+    <h1>Rediseño web<br>para <em>captar leads</em></h1>
+    <p>Auditoría, manual de marca, arquitectura del rediseño y propuesta comercial. Cinco documentos, uno de ellos para presentar directamente al cliente.</p>
+    <div class="meta">
+      <span>5 documentos</span>
+      <span>24 páginas auditadas</span>
+      <span>De 0 a 6 formularios</span>
+      <span>Presupuesto 1.950 - 3.900 €</span>
+    </div>
+  </div>
+</header>
+
+<main class="w">
+
+  <p class="sect">Para la videollamada</p>
+  <h2>Presentación al cliente</h2>
+  <div class="rule"></div>
+  <p class="sub">Esta es la única que se muestra a JOFEMESA. Sin tecnicismos, en formato diapositivas, pensada para compartir pantalla.</p>
+
+  <div class="docs">
+    <a class="doc client" href="05-Presentacion-Cliente.html">
+      <span class="n">05</span>
+      <div>
+        <span class="badge cli">Para el cliente</span>
+        <h3>Su web puede traerle clientes</h3>
+        <p>29 diapositivas. Diagnóstico en lenguaje llano, lo que sí funciona, la propuesta, el precio y la garantía. Se pasa con las flechas del teclado y tiene botón de pantalla completa.</p>
+      </div>
+      <span class="go">Abrir →</span>
+    </a>
+  </div>
+
+  <p class="sect">Trabajo interno</p>
+  <h2>Documentación del proyecto</h2>
+  <div class="rule"></div>
+  <p class="sub">Material de trabajo de LeadadGo. El documento 04 contiene la construcción del precio, los márgenes, el guion de la reunión y el manejo de objeciones.</p>
+
+  <div class="warn">
+    <h3>⚑ No comparta el documento 04 con el cliente</h3>
+    <p>Contiene el cálculo interno de horas y de precio por hora, la recomendación de no vender el paquete alto sin el contrato recurrente, y el guion de respuestas a sus objeciones.</p>
+    <p>Netlify <strong>no ofrece protección con contraseña en el plan gratuito</strong>. Si despliega esta carpeta completa, cualquiera que conozca o adivine la dirección <code>/04-Propuesta-Comercial.html</code> puede abrirla. Para compartir con JOFEMESA, despliegue la carpeta <code>JOFEMESA-CLIENTE</code> como un sitio aparte.</p>
+  </div>
+
+  <div class="docs">
+    <a class="doc internal" href="01-Auditoria-Web-Actual.html">
+      <span class="n">01</span>
+      <div>
+        <span class="badge int">Interno</span>
+        <h3>Auditoría de la web actual</h3>
+        <p>Análisis técnico, visual, UX/UI y de conversión. Todos los datos medidos: rendimiento, paleta, tipografía, arquitectura, móvil, SEO y los 12 fallos de conversión.</p>
+      </div>
+      <span class="go">Abrir →</span>
+    </a>
+    <a class="doc internal" href="02-Manual-de-Marca.html">
+      <span class="n">02</span>
+      <div>
+        <span class="badge int">Interno</span>
+        <h3>Manual de marca digital</h3>
+        <p>Identidad visual de JOFEMESA con muestras de color y especímenes tipográficos reales, sistema de componentes, voz y tono, las 12 sedes y el diccionario del sector.</p>
+      </div>
+      <span class="go">Abrir →</span>
+    </a>
+    <a class="doc internal" href="03-Arquitectura-Rediseno.html">
+      <span class="n">03</span>
+      <div>
+        <span class="badge int">Interno</span>
+        <h3>Arquitectura del rediseño</h3>
+        <p>De 30 URLs a 16. Cuadro de decisión con las 301, la nueva home bloque a bloque, plantillas de pilar y de landing, plan de medición y lanzamiento por fases.</p>
+      </div>
+      <span class="go">Abrir →</span>
+    </a>
+    <a class="doc internal" href="04-Propuesta-Comercial.html">
+      <span class="n">04</span>
+      <div>
+        <span class="badge int">Interno · confidencial</span>
+        <h3>Propuesta comercial</h3>
+        <p>Construcción del precio, anclaje de mercado, los tres paquetes, el recurrente, la garantía, manejo de ocho objeciones y guion de 30 minutos.</p>
+      </div>
+      <span class="go">Abrir →</span>
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="w">
+    <span class="logo lt" style="font-size:21px"><span class="a">Lead</span><span class="b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="bar" d="M12 2.6v8.4"/></svg></span>
+    <span>Proyecto JOFEMESA · Julio 2026 · Documentación interna</span>
+  </div>
+</footer>
+
+</body>
+</html>

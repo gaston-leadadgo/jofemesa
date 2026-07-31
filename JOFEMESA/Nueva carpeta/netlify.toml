@@ -1,0 +1,49 @@
+# ─────────────────────────────────────────────────────────────
+# Sitio INTERNO · JOFEMESA × LeadadGo
+# Contiene el documento 04 con precios internos y márgenes.
+# NO comparta la raíz de este sitio con el cliente.
+# ─────────────────────────────────────────────────────────────
+
+# Cabeceras para todo el sitio
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Fuera de los buscadores: es documentación privada de un cliente
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# La hoja de estilos compartida se puede cachear a largo plazo
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# Los HTML se revalidan siempre, para que al volver a subir
+# el navegador no siga mostrando la versión antigua
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# ── Direcciones cortas para compartir ────────────────────────
+[[redirects]]
+  from = "/presentacion"
+  to = "/05-Presentacion-Cliente.html"
+  status = 200
+
+[[redirects]]
+  from = "/auditoria"
+  to = "/01-Auditoria-Web-Actual.html"
+  status = 200
+
+[[redirects]]
+  from = "/marca"
+  to = "/02-Manual-de-Marca.html"
+  status = 200
+
+[[redirects]]
+  from = "/arquitectura"
+  to = "/03-Arquitectura-Rediseno.html"
+  status = 200

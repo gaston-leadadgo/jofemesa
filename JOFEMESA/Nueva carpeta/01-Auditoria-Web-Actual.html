@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auditoría web JOFEMESA · LeadadGo</title>
+<link rel="stylesheet" href="assets/leadadgo.css">
+</head>
+<body>
+
+<header class="doc-head">
+  <div class="shell">
+    <div class="topbar">
+      <span class="logo logo--light"><span class="lg-a">Lead</span><span class="lg-b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="lg-ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="lg-bar" d="M12 2.6v8.4"/></svg></span>
+      <span class="doc-kicker">Documento 01 de 04</span>
+    </div>
+    <span class="doc-kicker">Cliente · JOFEMESA</span>
+    <h1>Auditoría<br>de la web <em>actual</em></h1>
+    <p class="sub">Análisis técnico, visual, UX/UI y de conversión de <code>jofemesa.unportfolio10.com</code>, con todos los datos obtenidos por medición directa.</p>
+    <div class="doc-meta">
+      <span>30 de julio de 2026</span>
+      <span>24 páginas + 6 entradas analizadas</span>
+      <span>Medición directa del DOM y del rendimiento</span>
+    </div>
+  </div>
+</header>
+
+<nav class="docnav"><div class="shell">
+  <span class="logo"><span class="lg-a">Lead</span><span class="lg-b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="lg-ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="lg-bar" d="M12 2.6v8.4"/></svg></span>
+  <span class="spacer"></span>
+  <a href="01-Auditoria-Web-Actual.html" aria-current="page">01 · Auditoría</a>
+  <a href="02-Manual-de-Marca.html">02 · Manual de marca</a>
+  <a href="03-Arquitectura-Rediseno.html">03 · Arquitectura</a>
+  <a href="04-Propuesta-Comercial.html">04 · Propuesta</a>
+</div></nav>
+
+<main class="shell">
+
+  <div class="toc">
+    <h4>Contenido del documento</h4>
+    <ol>
+      <li><a href="#metodo">Nota metodológica</a></li>
+      <li><a href="#resumen">Resumen ejecutivo</a></li>
+      <li><a href="#stack">Stack técnico detectado</a></li>
+      <li><a href="#rendimiento">Rendimiento</a></li>
+      <li><a href="#estetica">Análisis de la estética visual</a></li>
+      <li><a href="#ux">UX y arquitectura de la información</a></li>
+      <li><a href="#movil">Experiencia móvil</a></li>
+      <li><a href="#conversion">Los 12 fallos de conversión</a></li>
+      <li><a href="#seo">SEO estructural</a></li>
+      <li><a href="#activos">Activos a conservar</a></li>
+      <li><a href="#cuadro">Cuadro de mando: antes y objetivo</a></li>
+    </ol>
+  </div>
+
+  <!-- ================= 00 ================= -->
+  <section id="metodo">
+    <span class="sec-num">00</span>
+    <h2>Nota metodológica</h2>
+    <div class="rule"></div>
+    <p class="lead">Todos los datos de este informe se han obtenido por medición directa: inspección del DOM, hojas de estilo computadas, <code>Performance API</code> del navegador y recorrido manual de las 24 páginas y 6 entradas de blog. No hay estimaciones salvo donde se indica expresamente.</p>
+    <p>La URL auditada es un entorno de pruebas alojado en <code>unportfolio10.com</code>, con la etiqueta <code>&lt;meta name="robots" content="noindex, nofollow"&gt;</code>. Es correcto para un <em>staging</em>, pero implica dos cosas relevantes:</p>
+    <ol>
+      <li><strong>No podemos medir tráfico ni posiciones reales</strong> desde esta URL. Las conclusiones de SEO son estructurales, no de rendimiento orgánico.</li>
+      <li><strong>Si este entorno se publicase tal cual, la web sería invisible para Google.</strong> Es el primer punto de la checklist de lanzamiento.</li>
+    </ol>
+    <p>Última modificación registrada del contenido: <code>2026-02-03</code>.</p>
+  </section>
+
+  <!-- ================= 01 ================= -->
+  <section id="resumen">
+    <span class="sec-num">01</span>
+    <h2>Resumen ejecutivo</h2>
+    <div class="rule"></div>
+
+    <p class="lead">JOFEMESA tiene un activo comercial serio detrás: 39 años de historia, más de 4.000 máquinas con antigüedad media inferior a 3 años, 12 centros operativos en España, triple certificación ISO y pertenencia a IPAF y ANAPAT. Es una empresa con autoridad real en su sector. Su web no comunica nada de eso y, sobre todo, no captura ni un solo lead.</p>
+
+    <div class="callout dark">
+      <p class="big">La web no tiene ningún formulario.<br>Cero. En ninguna de sus 24 páginas.</p>
+      <p style="margin:0">Verificado programáticamente (<code>document.forms</code> devuelve un array vacío) en la página de inicio, en la de sedes y en las fichas de producto. La única vía de contacto es un teléfono o un correo escritos en el pie.</p>
+    </div>
+
+    <p>Esto significa que hoy:</p>
+    <div class="cards">
+      <div class="card hl"><span class="idx">01</span><h4>No hay leads trazables</h4><p>Ni uno. De cada 100 visitantes que buscan alquilar maquinaria, JOFEMESA no sabe quién era ninguno.</p></div>
+      <div class="card hl"><span class="idx">02</span><h4>No se puede instalar una conversión</h4><p>Ni en Google Ads ni en Meta. No hay evento que disparar porque no hay nada que enviar.</p></div>
+      <div class="card hl"><span class="idx">03</span><h4>Las campañas trabajarían a ciegas</h4><p>Sin datos de conversión, los algoritmos de puja no pueden optimizar. El presupuesto se quema sin dirección.</p></div>
+    </div>
+
+    <p>A esto se suma un rendimiento crítico —<strong>13,2 s de carga completa y 2,8 MB de peso, de los cuales 1,99 MB son solo CSS</strong>—, una página de inicio de 10.185 px de alto en móvil sin un solo punto de conversión, y una arquitectura de 24 páginas con un mega-menú de 20 entradas que fragmenta la autoridad y dispersa al usuario.</p>
+
+    <div class="callout">
+      <p style="margin:0"><strong>Conclusión.</strong> La web actual funciona como un folleto corporativo digitalizado. Para montar campañas de captación de leads es, en su estado presente, inutilizable. La buena noticia es que el punto de partida es cero, lo que convierte casi cualquier mejora estructurada en un salto medible.</p>
+    </div>
+  </section>
+
+  <!-- ================= 02 ================= -->
+  <section id="stack">
+    <span class="sec-num">02</span>
+    <h2>Stack técnico detectado</h2>
+    <div class="rule"></div>
+    <div class="tw"><table>
+      <thead><tr><th>Componente</th><th>Detalle</th></tr></thead>
+      <tbody>
+        <tr><td>CMS</td><td>WordPress</td></tr>
+        <tr><td>Tema padre</td><td>GeneratePress 3.5.1</td></tr>
+        <tr><td>Tema hijo</td><td><code>byensalza</code> — desarrollo de Ensalza.com (crédito en el pie)</td></tr>
+        <tr><td>Constructor</td><td>Elementor 4.2.1 + Elementor Pro 4.2.1</td></tr>
+        <tr><td>Plugin de menú</td><td>Huger Elementor 1.1.4 (mega-menú)</td></tr>
+        <tr><td>Paginación</td><td>WP-PageNavi 2.70</td></tr>
+        <tr><td>Carrusel</td><td>Swiper 8.4.5</td></tr>
+        <tr><td>Iconografía</td><td>Font Awesome 5.15.3 — Solid + Regular + Brands</td></tr>
+        <tr><td>Tipografías</td><td>Google Fonts — Montserrat, Lora</td></tr>
+        <tr><td>Indexación</td><td><code>noindex, nofollow</code></td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout teal">
+      <p style="margin:0"><strong>Lectura estratégica.</strong> WordPress + Elementor es una base válida y es lo que recomendamos mantener. El problema no es el stack, es cómo está implementado: Elementor con 135 widgets en una sola página y 24 hojas de estilo separadas es la causa directa del problema de rendimiento. Se resuelve con arquitectura de plantillas, no cambiando de tecnología.</p>
+    </div>
+  </section>
+
+  <!-- ================= 03 ================= -->
+  <section id="rendimiento">
+    <span class="sec-num">03</span>
+    <h2>Rendimiento</h2>
+    <div class="rule"></div>
+    <p class="lead">El problema más grave después de la ausencia de formularios. Datos obtenidos con la <code>Performance API</code> del navegador, en escritorio y red real.</p>
+
+    <div class="stats">
+      <div class="stat"><b class="bad">1.126<small style="font-size:.4em">ms</small></b><span>TTFB · debería ser &lt; 400 ms</span></div>
+      <div class="stat"><b class="bad">8,7<small style="font-size:.4em">s</small></b><span>DOMContentLoaded · debería ser &lt; 2 s</span></div>
+      <div class="stat"><b class="bad">13,2<small style="font-size:.4em">s</small></b><span>Carga completa · debería ser &lt; 4 s</span></div>
+      <div class="stat"><b class="bad">2.856<small style="font-size:.4em">KB</small></b><span>Peso total · debería ser &lt; 1.000 KB</span></div>
+      <div class="stat"><b class="bad">108</b><span>Peticiones HTTP · debería ser &lt; 50</span></div>
+      <div class="stat"><b class="bad">135</b><span>Widgets de Elementor en una página</span></div>
+    </div>
+
+    <h3>El CSS es el 70 % del problema</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Tipo</th><th class="tc">Ficheros</th><th>Peso</th><th>%</th></tr></thead>
+      <tbody>
+        <tr style="background:#FCF3F9"><td><strong>CSS</strong></td><td class="tc num"><strong>24</strong></td><td class="num"><strong>1.989 KB</strong></td><td class="num"><strong>69,6 %</strong></td></tr>
+        <tr><td>Imágenes</td><td class="tc num">14</td><td class="num">632 KB</td><td class="num">22,1 %</td></tr>
+        <tr><td>JavaScript</td><td class="tc num">24</td><td class="num">158 KB</td><td class="num">5,5 %</td></tr>
+        <tr><td>Preloads / links</td><td class="tc num">46</td><td class="num">76 KB</td><td class="num">2,7 %</td></tr>
+      </tbody>
+    </table></div>
+
+    <p>Casi <strong>2 MB de CSS repartidos en 24 ficheros</strong> es un caso extremo de acumulación de hojas de estilo de Elementor: una por widget (<code>widget-image</code>, <code>widget-heading</code>, <code>widget-divider</code>, <code>widget-spacer</code>, <code>widget-social-icons</code>, <code>widget-post-info</code>, <code>widget-loop-carousel</code>…), una por página (<code>post-5.css</code>, <code>post-279.css</code>, <code>post-300.css</code>, <code>post-667.css</code>, <code>post-674.css</code>, <code>post-679.css</code>, <code>post-1214.css</code>, <code>post-10.css</code>), una por animación (<code>zoomIn</code>, <code>fadeInRight</code>, <code>e-animation-grow</code>), más Font Awesome en tres variantes y el plugin Huger.</p>
+    <p>Además hay <strong>46 etiquetas <code>&lt;link&gt;</code></strong>, lo que multiplica los <em>round-trips</em> de red antes de que el navegador pueda pintar nada.</p>
+
+    <h3>Imágenes mal preparadas</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Fichero</th><th>Peso</th><th>Real</th><th>Mostrado</th><th>Problema</th></tr></thead>
+      <tbody>
+        <tr><td><code>dumper.jpg</code></td><td class="num">219 KB</td><td>—</td><td>—</td><td>JPG sin optimizar</td></tr>
+        <tr><td><code>1513166312_img1.-15-11.jpg</code></td><td class="num">195 KB</td><td>—</td><td>—</td><td>Nombre sin valor SEO</td></tr>
+        <tr><td><code>Home.webp</code></td><td class="num">192 KB</td><td>—</td><td>—</td><td>WebP pero muy pesado</td></tr>
+        <tr><td><code>miniexcavadoras.jpg</code></td><td class="num">175 KB</td><td>—</td><td>—</td><td>JPG sin optimizar</td></tr>
+        <tr><td><code>…grupos-electrogenos_blog.jpg</code></td><td>—</td><td class="num">480×640</td><td class="num">480×260</td><td>Se descarga 2,5× más alto de lo que se ve</td></tr>
+        <tr><td><code>…plataforma-artic-40m…jpg</code></td><td>—</td><td class="num">640×480</td><td class="num">640×260</td><td>Se descarga 1,8× más alto</td></tr>
+        <tr><td><code>…alq-plataformas…jpg</code></td><td class="num">111 KB</td><td class="num">531×440</td><td class="num">531×260</td><td>Se descarga 1,7× más alto</td></tr>
+      </tbody>
+    </table></div>
+
+    <p><strong>Hallazgos adicionales:</strong></p>
+    <ul>
+      <li><span class="tag crit">Crítico</span> &nbsp;<strong>16 de 16 imágenes no tienen atributo <code>alt</code>.</strong> Cero. Es simultáneamente un fallo de accesibilidad (incumple WCAG 2.1 nivel A), un fallo de SEO (se pierde el 100 % del tráfico de Google Imágenes, muy relevante en maquinaria) y un riesgo en contratación pública.</li>
+      <li>El logotipo (<code>logotipo-jofemesa.webp</code>) y el logo de ANAPAT devuelven <code>naturalWidth = 0</code>: no se cargan correctamente.</li>
+      <li>El logo de ANAPAT se muestra a 900×253 px: un sello de asociación ocupando casi el ancho completo del contenedor.</li>
+      <li>El <code>lazy-loading</code> es inconsistente (<code>loading="lazy"</code> en 4 imágenes, <code>auto</code> en 12), incluyendo imágenes de la parte superior que deberían cargarse con prioridad.</li>
+    </ul>
+
+    <div class="callout dark">
+      <h4>Impacto comercial directo sobre las campañas</h4>
+      <ul style="margin-bottom:0">
+        <li>Google penaliza en el <strong>Nivel de calidad</strong> la experiencia de la página de destino. Un LCP de esta magnitud sube el CPC de forma directa.</li>
+        <li>Con 13 segundos de carga, <strong>más de la mitad del tráfico pagado se pierde antes de ver el contenido</strong>. Se paga por clics que nunca llegan a ver la oferta.</li>
+        <li>En móvil, donde está el jefe de obra buscando una plataforma, el escenario es peor: 4G real, no fibra.</li>
+      </ul>
+    </div>
+    <p><strong>Traducción:</strong> cada euro invertido en Ads sobre la web actual rinde una fracción de lo que podría. El rediseño no es un gasto estético, es una palanca directa sobre el coste por lead.</p>
+  </section>
+
+  <!-- ================= 04 ================= -->
+  <section id="estetica">
+    <span class="sec-num">04</span>
+    <h2>Análisis de la estética visual</h2>
+    <div class="rule"></div>
+
+    <h3>Paleta de color medida</h3>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#AC0000"><span style="color:#fff">24 usos</span></div><div class="body"><b>Rojo oscuro</b><em>#AC0000</em><small>Botón primario, acentos</small></div></div>
+      <div class="sw"><div class="chip" style="background:#F60000"><span style="color:#fff">15 usos</span></div><div class="body"><b>Rojo brillante</b><em>#F60000</em><small>Botón primario <strong>duplicado</strong></small></div></div>
+      <div class="sw"><div class="chip" style="background:#D30000"><span style="color:#fff">4 usos</span></div><div class="body"><b>Rojo medio</b><em>#D30000</em><small>Suelto, sin criterio</small></div></div>
+      <div class="sw"><div class="chip" style="background:#BF1F1F"><span style="color:#fff">1 uso</span></div><div class="body"><b>Rojo apagado</b><em>#BF1F1F</em><small>Suelto, sin criterio</small></div></div>
+      <div class="sw"><div class="chip" style="background:#1C3254"><span style="color:#fff">110 usos</span></div><div class="body"><b>Azul marino</b><em>#1C3254</em><small>Enlaces de navegación (<code>--base-3</code>)</small></div></div>
+      <div class="sw"><div class="chip" style="background:#000000"><span style="color:#fff">885 usos</span></div><div class="body"><b>Negro puro</b><em>#000000</em><small>Texto de cuerpo y botón «Contacto»</small></div></div>
+      <div class="sw"><div class="chip" style="background:#EFBB20"><span style="color:#0E1217">0 usos</span></div><div class="body"><b>Amarillo</b><em>#EFBB20</em><small><strong>Declarado en <code>--base-2</code> y nunca usado</strong></small></div></div>
+      <div class="sw"><div class="chip" style="background:#6D6D6D"><span style="color:#fff">16 usos</span></div><div class="body"><b>Gris medio</b><em>#6D6D6D</em><small>Texto secundario</small></div></div>
+    </div>
+
+    <h4><span class="tag crit">Crítico</span> &nbsp;Cuatro rojos distintos</h4>
+    <p>No es una paleta, es una acumulación. Los botones «Ver todo» aparecen simultáneamente en <code>#AC0000</code> y en <code>#F60000</code> <strong>en la misma página de inicio</strong>, según la sección. Es el síntoma clásico de un diseño construido widget a widget en Elementor, sin sistema de diseño detrás.</p>
+
+    <h4><span class="tag crit">Crítico</span> &nbsp;La jerarquía de color está invertida</h4>
+    <p>El botón «Contacto» es <strong>negro</strong>, no rojo. El elemento más importante de conversión de toda la web está pintado con el color menos llamativo de la paleta, mientras que «Ver todo» —un enlace de navegación sin valor comercial— se lleva el rojo corporativo.</p>
+
+    <h4><span class="tag crit">Crítico</span> &nbsp;Texto de cuerpo en negro puro</h4>
+    <p>885 elementos en <code>#000000</code>. El negro absoluto sobre blanco absoluto genera fatiga visual y hace que la web se sienta cruda y antigua.</p>
+
+    <div class="callout teal">
+      <h4>Hallazgo aprovechable</h4>
+      <p style="margin:0">El sistema ya declara <code>--base-3: #1C3254</code> (azul industrial) y <code>--base-2: #EFBB20</code> (amarillo señalización). Ambos son culturalmente correctísimos para el sector —el amarillo de señalización de obra y el azul de ingeniería— y el amarillo está <strong>completamente sin usar</strong>. La tríada rojo + azul industrial + amarillo señalización es la paleta correcta para JOFEMESA y ya está a medio declarar en su propio código. Solo hay que activarla y ordenarla.</p>
+    </div>
+
+    <h3>Tipografía medida</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Uso</th><th>Fuente</th><th>Tamaño</th><th>Peso</th><th>Transform</th></tr></thead>
+      <tbody>
+        <tr><td>H1 escritorio</td><td>Montserrat</td><td class="num">46 px</td><td class="num">700</td><td>uppercase</td></tr>
+        <tr><td>H1 móvil</td><td>Montserrat</td><td class="num">25 px</td><td class="num">700</td><td>uppercase</td></tr>
+        <tr><td>H2 grandes</td><td>Montserrat</td><td class="num">56 px</td><td class="num">800</td><td>uppercase</td></tr>
+        <tr><td>H2 de sección</td><td>Montserrat</td><td class="num">26 px</td><td class="num">400 / 700</td><td>uppercase</td></tr>
+        <tr><td>H3</td><td>Montserrat</td><td class="num">26 px</td><td class="num">800</td><td>uppercase</td></tr>
+        <tr style="background:#FCF3F9"><td><strong>Cuerpo</strong></td><td><strong>Lora</strong> (serif)</td><td class="num">18 px / lh 27 px</td><td class="num">400</td><td>none</td></tr>
+        <tr style="background:#FCF3F9"><td><strong>Párrafos</strong></td><td><strong>Lora</strong> (serif)</td><td class="num">16 px</td><td class="num">400</td><td>none</td></tr>
+        <tr><td>Navegación</td><td>Montserrat</td><td class="num">13 px</td><td class="num">500</td><td>uppercase</td></tr>
+        <tr style="background:#FCF3F9"><td><strong>Botones</strong></td><td>Montserrat</td><td class="num"><strong>13 px</strong></td><td class="num">600</td><td>uppercase</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="cards">
+      <div class="card"><span class="idx">Problema 01</span><h4>Lora es una serif editorial</h4><p>Diseñada para revistas, con contraste caligráfico. Usada como fuente de cuerpo de una web de maquinaria industrial es una disonancia de categoría: comunica «suplemento cultural», no «flota de 4.000 máquinas revisadas».</p></div>
+      <div class="card"><span class="idx">Problema 02</span><h4>Fallback erróneo</h4><p>Declarada como <code>font-family: Lora, sans-serif</code>. Si Lora no carga, el texto salta de serif a sans-serif y cambia toda la métrica de la página.</p></div>
+      <div class="card"><span class="idx">Problema 03</span><h4>Todo en mayúsculas</h4><p>H1, H2, H3, navegación y botones en <code>uppercase</code>. Las mayúsculas eliminan las ascendentes y descendentes que el ojo usa para reconocer palabras. En titulares de 8-12 palabras el resultado es un muro tipográfico que el usuario salta.</p></div>
+      <div class="card"><span class="idx">Problema 04</span><h4>Botones a 13 px</h4><p>Es el texto más pequeño de la web y está en el elemento que debe atraer el clic. En móvil agrava el problema de tamaño de área táctil.</p></div>
+    </div>
+
+    <div class="callout dark">
+      <h4>Ejemplo del muro tipográfico</h4>
+      <p style="font-family:var(--font-display);font-size:24px;font-weight:700;text-transform:uppercase;line-height:1.15;margin:12px 0 0;color:#fff">Resultados excepcionales con Jofemesa: el poder del alquiler de plataformas en proyectos de Madrid</p>
+    </div>
+
+    <h3>Veredicto estético global</h3>
+    <p>La web se lee como una <strong>web corporativa española de sector industrial de la generación 2015-2018</strong>: bloques de ancho completo con imagen de fondo y titular en mayúsculas encima, mega-menú desplegable, carrusel de noticias, banda de sellos ISO en el pie. Es competente y no es fea, pero es <strong>indistinguible de sus competidores directos</strong> (GAM, Loxam, Riwal, Alquiber), que usan exactamente el mismo lenguaje visual.</p>
+    <p>Para una empresa con 39 años de historia y la flota más joven del sector, la web no está trabajando en su favor. No hay ni un elemento visual que un competidor no pudiera copiar en una tarde, y no hay ni un dato de autoridad presentado con la fuerza que merece.</p>
+  </section>
+
+  <!-- ================= 05 ================= -->
+  <section id="ux">
+    <span class="sec-num">05</span>
+    <h2>UX y arquitectura de la información</h2>
+    <div class="rule"></div>
+
+    <div class="stats">
+      <div class="stat"><b>24</b><span>Páginas</span></div>
+      <div class="stat"><b>6</b><span>Entradas de blog</span></div>
+      <div class="stat"><b>5</b><span>PDF enlazados</span></div>
+      <div class="stat"><b class="bad">20</b><span>Entradas visibles en el menú</span></div>
+      <div class="stat"><b class="bad">3</b><span>Niveles de profundidad</span></div>
+    </div>
+
+    <h3>Inventario completo — 30 URLs</h3>
+    <div class="tree"><b>NIVEL 1 · MENÚ PRINCIPAL (7)</b>
+├── Alquiler maquinaria de elevación  →  /alquiler-elevacion/
+├── Alquiler maquinaria de obra       →  /alquiler-maquinaria/
+├── Venta                             →  /venta/
+├── Otros servicios                   →  /otros-servicios/
+├── Nosotros                          →  /nosotros/
+├── Noticias                          →  /noticias/
+└── Contacto                          →  <i>/sedes-jofemesa/</i>  ← no es una página de contacto
+
+<b>NIVEL 2-3 · ELEVACIÓN (11 URLs)</b>
+└── alquiler-de-plataformas-elevadoras/
+    ├── plataformas-tijera/
+    ├── plataformas-telescopicas/
+    ├── plataformas-articuladas/
+    └── plataformas-de-oruga-compactas/
+    alquiler-de-manipuladores/ · alquiler-de-carretillas-industriales/
+    alquiler-de-carretillas-todoterreno/ · alquiler-de-maquinas-de-almacen/
+    alquiler-de-plataforma-sobre-camion/
+
+<b>NIVEL 2 · MAQUINARIA DE OBRA (7 URLs)</b>
+    miniexcavadoras/ · minicargadoras/ · dumper/ · grupos-electrogenos/
+    torres-de-iluminacion/ · compresores/ · rodillos/
+
+<b>OTRAS</b>
+    /venta/ · /otros-servicios/ · /nosotros/ · /noticias/
+    /sedes-jofemesa/ · /politica-privacidad/
+    <u>6 entradas de blog (feb–abr 2025)</u>
+    <u>5 PDF: ISO 9001 · ISO 45001 · ISO 14001 · catálogo · política de gestión</u></div>
+
+    <h3>Problemas de arquitectura</h3>
+
+    <h4><span class="tag crit">Crítico</span> &nbsp;Mega-menú con 20 entradas simultáneas</h4>
+    <p>Un jefe de obra que necesita una plataforma de tijera de 10 metros atraviesa tres niveles —<code>Alquiler maquinaria de elevación</code> → <code>Alquiler de plataformas elevadoras</code> → <code>Plataformas Tijera</code>— para llegar a una página que, cuando llega, no tiene ni el precio ni un formulario. Tres fricciones antes del contenido y ninguna salida hacia la conversión.</p>
+
+    <h4><span class="tag crit">Crítico</span> &nbsp;18 páginas de producto de 400-450 palabras</h4>
+    <p>Auditada <code>/plataformas-tijera/</code> en detalle: unas 400-450 palabras de texto genérico, sin tabla de especificaciones en HTML, sin modelos concretos, sin alturas ni capacidades visibles, sin precios. Toda la información técnica útil está encerrada en <strong>12 PDF descargables</strong> (6 fichas técnicas + 6 manuales de uso y seguridad).</p>
+    <div class="cards">
+      <div class="card"><span class="idx">Consecuencia 01</span><h4>SEO</h4><p>Google no puede indexar las alturas y capacidades que la gente busca («plataforma tijera 12 metros alquiler»). El contenido diferenciador está oculto.</p></div>
+      <div class="card"><span class="idx">Consecuencia 02</span><h4>Conversión</h4><p>El usuario tiene que descargar un PDF y abrirlo para saber si la máquina le sirve. La mayoría abandona.</p></div>
+      <div class="card"><span class="idx">Consecuencia 03</span><h4>Búsqueda con IA</h4><p>ChatGPT, Perplexity y las AI Overviews de Google no leen esos PDF. JOFEMESA es invisible en el canal de descubrimiento que más crece.</p></div>
+    </div>
+
+    <h4><span class="tag crit">Crítico</span> &nbsp;La página de contacto no es una página de contacto</h4>
+    <p>El menú «Contacto» apunta a <code>/sedes-jofemesa/</code>, un directorio de 12 centros con dirección, teléfono y correo. Sin formulario, sin horarios —<strong>ninguna de las 12 sedes indica horario de apertura</strong>—, sin mapa interactivo, sin selector de provincia. Es una página de información logística, no de conversión.</p>
+
+    <h4><span class="tag warn">Alto</span> &nbsp;<code>/otros-servicios/</code> mezcla líneas de negocio incompatibles</h4>
+    <p>Junta servicios portuarios (estiba en puertos de Asturias y Levante), embalado y gestión de almacenes siderúrgicos, y mantenimiento de maquinaria industrial. Son tres negocios B2B distintos, con tres compradores distintos, apilados en una página. Para campañas de Ads es ruido puro: diluye el mensaje y contamina las audiencias.</p>
+
+    <h4><span class="tag warn">Alto</span> &nbsp;Blog abandonado</h4>
+    <p>6 entradas, la última del 15/04/2025 —más de 15 meses sin publicar—. Los títulos son <em>keyword stuffing</em> geográfico evidente: «Obras Con Energía: Alquiler De Maquinaria En Málaga Con Grupos Electrógenos De Alta Potencia». Aportan cero autoridad y proyectan abandono.</p>
+
+    <h4><span class="tag warn">Alto</span> &nbsp;Contenido duplicado dentro de la propia home</h4>
+    <p>Al inspeccionar las 24 secciones de nivel superior de la página de inicio, las secciones 1-2 se repiten idénticas en las posiciones 4-5, y el bloque de noticias se renderiza <strong>dos veces</strong> (carrusel + cuadrícula) con los mismos 6 posts. Es peso muerto que el navegador descarga y procesa dos veces.</p>
+
+    <h3>Inconsistencias de contenido detectadas</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Dónde</th><th>Qué dice</th><th>Problema</th></tr></thead>
+      <tbody>
+        <tr><td>Home, párrafo introductorio</td><td>«Con más de <strong>30 años</strong> de experiencia»</td><td>Contradice el resto de la web</td></tr>
+        <tr><td>Home, eslogan destacado</td><td>«Más de <strong>35 años</strong> impulsando…»</td><td>Contradice el párrafo anterior</td></tr>
+        <tr><td><code>/nosotros/</code></td><td>Fundada en <strong>1987</strong> → 39 años en 2026</td><td>El dato real es mejor que los dos anteriores</td></tr>
+        <tr><td><code>/nosotros/</code></td><td>«<strong>7 delegaciones</strong> estratégicas»</td><td><code>/sedes-jofemesa/</code> lista <strong>12 centros</strong></td></tr>
+        <tr style="background:#FCF3F9"><td>Cabecera, todas las páginas</td><td><code>tel:034985985212</code></td><td><strong>Prefijo malformado</strong> (<code>034</code> en lugar de <code>+34</code>) y número de Asturias en la cabecera global</td></tr>
+        <tr><td>Home</td><td>Teléfono visible: 91 361 31 31</td><td>Distinto del enlace <code>tel:</code> de la cabecera</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="callout dark">
+      <p class="big">El único enlace de contacto permanente de toda la web está mal formado y apunta a la delegación equivocada.</p>
+      <p style="margin:0">En móvil, <code>tel:034985985212</code> puede no marcar correctamente según el dispositivo. Es un fallo de conversión de primer orden, y es gratis de arreglar.</p>
+    </div>
+  </section>
+
+  <!-- ================= 06 ================= -->
+  <section id="movil">
+    <span class="sec-num">06</span>
+    <h2>Experiencia móvil</h2>
+    <div class="rule"></div>
+    <p class="lead">Medido con viewport de 375 × 812 px (iPhone estándar).</p>
+
+    <div class="tw"><table>
+      <thead><tr><th>Métrica</th><th>Valor medido</th><th>Veredicto</th></tr></thead>
+      <tbody>
+        <tr><td>Alto total de la página de inicio</td><td class="num"><strong>10.185 px</strong></td><td><span class="tag crit">≈ 12,5 pantallas</span></td></tr>
+        <tr><td>Desbordamiento horizontal del documento</td><td>No</td><td><span class="tag ok">Correcto</span></td></tr>
+        <tr><td>Contenedores internos que desbordan</td><td class="num">8 (<code>swiper-wrapper</code> a 998 px)</td><td><span class="tag warn">Fuerzan reflow</span></td></tr>
+        <tr><td>Tamaño de H1 en móvil</td><td class="num">25 px</td><td><span class="tag warn">Justo</span></td></tr>
+        <tr><td>Áreas táctiles por debajo de 40 px</td><td class="num"><strong>45 de 126 · 36 %</strong></td><td><span class="tag crit">Incumple Google (48 px) y Apple (44 pt)</span></td></tr>
+        <tr><td>CTA fijo de llamada / WhatsApp</td><td><strong>No existe</strong></td><td><span class="tag crit">Crítico</span></td></tr>
+        <tr><td>Formularios</td><td class="num"><strong>0</strong></td><td><span class="tag crit">Crítico</span></td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="callout dark">
+      <p class="big">En móvil, un usuario recorre 12 pantallas y media de la web de JOFEMESA sin encontrar un solo formulario, un solo botón de WhatsApp ni un solo botón fijo de llamada.</p>
+      <p style="margin:0">Y el <strong>único CTA visible sobre la línea de flotación</strong> es <code>NUESTRO VÍDEO PRESENTACIÓN</code>. El primer y único llamado a la acción que ve el usuario es un vídeo institucional. No es una conversión, es una distracción.</p>
+    </div>
+  </section>
+
+  <!-- ================= 07 ================= -->
+  <section id="conversion">
+    <span class="sec-num">07</span>
+    <h2>Los 12 fallos que impiden captar leads</h2>
+    <div class="rule"></div>
+    <p class="lead">Ordenados por impacto sobre el coste por lead de una campaña de Ads.</p>
+
+    <h3><span class="tag crit">Crítico</span></h3>
+    <div class="cards">
+      <div class="card hl"><span class="idx">01</span><h4>No existe ningún formulario</h4><p>Verificado programáticamente. Sin formulario no hay lead; sin lead no hay evento de conversión; sin evento, Google Ads y Meta no pueden optimizar. Es el bloqueo absoluto.</p></div>
+      <div class="card hl"><span class="idx">02</span><h4>No existe página de agradecimiento</h4><p>Consecuencia de lo anterior. Sin una URL de confirmación no hay dónde disparar el píxel de conversión ni asignar valor.</p></div>
+      <div class="card hl"><span class="idx">03</span><h4>El enlace de teléfono está roto</h4><p><code>tel:034985985212</code>. Prefijo incorrecto y sede equivocada, en la cabecera de todas las páginas.</p></div>
+      <div class="card hl"><span class="idx">04</span><h4>No hay WhatsApp</h4><p>En obra e industria en España, WhatsApp es el canal por defecto entre jefes de obra, encargados y proveedores. Su ausencia es una pérdida directa de leads que el mercado espera poder generar.</p></div>
+      <div class="card hl"><span class="idx">05</span><h4>El catálogo se regala sin capturar el correo</h4><p><code>8101-JOFEMEv2.pdf</code> se descarga con un clic. Es el mejor imán de leads de la empresa —un catálogo completo de flota— y se entrega a cambio de nada. Igual con las 12 fichas técnicas y manuales.</p></div>
+    </div>
+
+    <h3><span class="tag warn">Alto</span></h3>
+    <div class="cards">
+      <div class="card"><span class="idx">06</span><h4>Los CTA no piden nada</h4><p>Inventario de los 24 botones de la home: <code>Ver todo</code> ×7, <code>Leer más</code> ×10, <code>Contacto</code> ×2, <code>Nuestro vídeo presentación</code>, <code>Conozca más sobre nosotros</code>, <code>Más información</code>, <code>Ver todas las noticias</code>, <code>Descarga nuestro catálogo</code>, <code>Encuentre su sede más cercana</code>. Ninguno pide un presupuesto. Ninguno tiene urgencia.</p></div>
+      <div class="card"><span class="idx">07</span><h4>Cero prueba social</h4><p>No hay testimonios, logotipos de clientes, casos de éxito con cifras ni reseñas de Google. Una empresa con 39 años trabajando con constructoras e industria tiene material de sobra y no usa nada.</p></div>
+      <div class="card"><span class="idx">08</span><h4>Cero señales de disponibilidad o plazo</h4><p>No se dice cuánto tarda una entrega, si hay stock hoy, si se entrega en obra, si el transporte está incluido. Son las tres primeras preguntas de cualquiera que quiere alquilar una máquina.</p></div>
+      <div class="card"><span class="idx">09</span><h4>No hay precios ni horquillas</h4><p>Es legítimo no publicar tarifas en B2B. Pero no ofrecer ni una horquilla ni un «presupuesto en X horas» deja al usuario sin ancla y lo empuja a pedir precio a tres competidores a la vez.</p></div>
+      <div class="card"><span class="idx">10</span><h4>Las especificaciones están en PDF</h4><p>El usuario no puede filtrar por altura de trabajo ni capacidad de carga sin descargar documentos.</p></div>
+    </div>
+
+    <h3><span class="tag neu">Medio</span></h3>
+    <div class="cards">
+      <div class="card"><span class="idx">11</span><h4>36 % de áreas táctiles bajo el mínimo</h4><p>45 de 126 elementos clicables por debajo de 40 px en móvil.</p></div>
+      <div class="card"><span class="idx">12</span><h4>Sin horarios en ninguna de las 12 sedes</h4><p>Fricción para el usuario, señal de posicionamiento local perdida y dato que Google cruza con Business Profile.</p></div>
+    </div>
+  </section>
+
+  <!-- ================= 08 ================= -->
+  <section id="seo">
+    <span class="sec-num">08</span>
+    <h2>SEO estructural</h2>
+    <div class="rule"></div>
+    <div class="tw"><table>
+      <thead><tr><th>Elemento</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td><code>&lt;title&gt;</code> de la home</td><td><span class="tag crit">Crítico</span> <strong>139 caracteres</strong> de <em>keyword stuffing</em>: «Inicio - Alquiler de Plataformas, Alquiler de Maquinaria, Venta de Carretillas, Manipuladores, Carretillas Industriales, Carretillas Todoterreno – JOFEMESA»</td></tr>
+        <tr><td><code>&lt;meta description&gt;</code></td><td><span class="tag crit">Crítico</span> No existe una propia; el <code>og:description</code> es un volcado del primer párrafo cortado con «… Leer más»</td></tr>
+        <tr><td>Un solo <code>&lt;h1&gt;</code> por página</td><td><span class="tag ok">Correcto</span> 1 en la home</td></tr>
+        <tr><td>Jerarquía de encabezados</td><td><span class="tag crit">Crítico</span> H3 aparecen antes del H1 en el orden del DOM; hay H2 con peso 400 y H2 con peso 800 sin criterio</td></tr>
+        <tr><td><code>alt</code> en imágenes</td><td><span class="tag crit">Crítico</span> <strong>0 de 16</strong></td></tr>
+        <tr><td>Nombres de fichero de imagen</td><td><span class="tag crit">Crítico</span> <code>1513166312_img1.-15-11.jpg</code>, <code>1509450327__RSG9913.jpg</code> — sin valor semántico</td></tr>
+        <tr><td>Datos estructurados (Schema.org)</td><td><span class="tag crit">Crítico</span> Ninguno. Faltan <code>LocalBusiness</code> ×12, <code>Organization</code>, <code>Product</code>, <code>FAQPage</code>, <code>BreadcrumbList</code></td></tr>
+        <tr><td>Indexación</td><td><span class="tag warn">Atención</span> <code>noindex, nofollow</code> — correcto en staging, bloqueante en producción</td></tr>
+        <tr><td>Contenido único por página de producto</td><td><span class="tag warn">Atención</span> 400-450 palabras genéricas, muy solapadas entre sí</td></tr>
+        <tr><td>Optimización local</td><td><span class="tag crit">Crítico</span> 12 centros sin página propia optimizada, sin <code>LocalBusiness</code>, sin horarios, sin reseñas</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="callout dark">
+      <h4>La oportunidad orgánica desaprovechada más grande</h4>
+      <p style="margin:0">JOFEMESA tiene presencia física en Madrid (×3), Valencia (×2), Castellón, Alicante, Asturias (×2), Málaga, Sevilla y Valladolid. Son <strong>9 provincias con instalación real</strong>. Búsquedas como «alquiler plataformas elevadoras Málaga» o «alquiler miniexcavadora Valladolid» tienen intención comercial altísima y baja competencia relativa, y hoy JOFEMESA no tiene ni una página construida para capturarlas. Su ventaja competitiva real —estar físicamente cerca— no está representada en la web.</p>
+    </div>
+  </section>
+
+  <!-- ================= 09 ================= -->
+  <section id="activos">
+    <span class="sec-num">09</span>
+    <h2>Activos a conservar</h2>
+    <div class="rule"></div>
+    <p class="lead">No todo hay que tirarlo. Estos son los activos con valor real.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Activo</th><th>Por qué conservarlo</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Rojo corporativo</strong></td><td>Reconocible, potente, correcto para el sector. Se consolida, no se cambia.</td></tr>
+        <tr><td><strong>Montserrat</strong></td><td>Titular robusto y adecuado. Se mantiene.</td></tr>
+        <tr><td><strong>Fundación en 1987</strong></td><td>39 años es un dato de autoridad de primer orden. Hay que usarlo bien, no esconderlo tras un «más de 30 años».</td></tr>
+        <tr><td><strong>+4.000 máquinas en flota</strong></td><td>Cifra dura, verificable, diferencial. Debe estar en el hero.</td></tr>
+        <tr style="background:#F2FBFA"><td><strong>Antigüedad media &lt; 3 años</strong></td><td><strong>El mejor argumento comercial de toda la empresa</strong> y hoy está enterrado en <code>/nosotros/</code>. Flota joven = menos averías = menos parón de obra.</td></tr>
+        <tr><td><strong>12 centros en 9 provincias + Portugal</strong></td><td>Base para toda la estrategia de captación geolocalizada.</td></tr>
+        <tr><td><strong>ISO 9001 · 14001 · 45001 · IPAF · ANAPAT</strong></td><td>Requisito de acceso a licitaciones y grandes constructoras. Merece un bloque propio.</td></tr>
+        <tr><td><strong>12 fichas técnicas y manuales en PDF</strong></td><td>Materia prima de los imanes de leads y del contenido HTML de las páginas pilar.</td></tr>
+        <tr><td><strong>Catálogo completo de flota</strong></td><td>El imán de leads principal, una vez puesto tras formulario.</td></tr>
+        <tr><td><strong>Vídeo de presentación</strong></td><td>Buen activo. Debe estar más abajo, no como CTA principal.</td></tr>
+        <tr><td><strong>Servicios industriales</strong></td><td>Línea B2B con margen. Necesita su propia página y su propio embudo, separada del alquiler.</td></tr>
+        <tr><td><strong>Stack WordPress + Elementor</strong></td><td>Válido. Se reconstruye la implementación, no la tecnología.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- ================= 10 ================= -->
+  <section id="cuadro">
+    <span class="sec-num">10</span>
+    <h2>Cuadro de mando: antes y objetivo</h2>
+    <div class="rule"></div>
+    <div class="tw"><table>
+      <thead><tr><th>Indicador</th><th>Hoy (medido)</th><th>Objetivo post-rediseño</th></tr></thead>
+      <tbody>
+        <tr><td>Formularios en la web</td><td class="num"><strong>0</strong></td><td class="num">6</td></tr>
+        <tr><td>Leads trazables / mes</td><td class="num"><strong>0</strong></td><td class="num">25-40</td></tr>
+        <tr><td>Eventos de conversión configurados</td><td class="num"><strong>0</strong></td><td class="num">10</td></tr>
+        <tr><td>Carga completa (escritorio)</td><td class="num">13,2 s</td><td class="num">&lt; 3,5 s</td></tr>
+        <tr><td>LCP</td><td class="num">&gt; 8 s (est.)</td><td class="num">&lt; 2,5 s</td></tr>
+        <tr><td>Peso de la página</td><td class="num">2.856 KB</td><td class="num">&lt; 900 KB</td></tr>
+        <tr><td>Ficheros CSS</td><td class="num">24 · 1.989 KB</td><td class="num">≤ 3 · &lt; 150 KB</td></tr>
+        <tr><td>Peticiones HTTP</td><td class="num">108</td><td class="num">&lt; 45</td></tr>
+        <tr><td>Imágenes con <code>alt</code></td><td class="num">0 %</td><td class="num">100 %</td></tr>
+        <tr><td>URLs en el sitio</td><td class="num">24 páginas + 6 posts</td><td class="num">16 URLs</td></tr>
+        <tr><td>Entradas en el menú principal</td><td class="num">20</td><td class="num">6</td></tr>
+        <tr><td>Alto de la home en móvil</td><td class="num">10.185 px</td><td class="num">≈ 5.500 px</td></tr>
+        <tr><td>Áreas táctiles &lt; 40 px</td><td class="num">36 %</td><td class="num">0 %</td></tr>
+        <tr><td>Páginas con datos estructurados</td><td class="num">0</td><td class="num">16</td></tr>
+        <tr><td>Páginas de captación geolocalizada</td><td class="num">0</td><td class="num">8</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+</main>
+
+<footer class="doc-foot">
+  <div class="shell">
+    <span class="logo logo--light"><span class="lg-a">Lead</span><span class="lg-b">Adg</span><svg viewBox="0 0 24 24" width="0.78em" height="0.78em" fill="none" stroke-linecap="round" stroke-width="3"><path class="lg-ring" d="M18.36 6.64a9 9 0 1 1-12.73 0"/><path class="lg-bar" d="M12 2.6v8.4"/></svg></span>
+    <nav>
+      <a href="01-Auditoria-Web-Actual.html">01 Auditoría</a>
+      <a href="02-Manual-de-Marca.html">02 Manual de marca</a>
+      <a href="03-Arquitectura-Rediseno.html">03 Arquitectura</a>
+      <a href="04-Propuesta-Comercial.html">04 Propuesta comercial</a>
+    </nav>
+    <span>Documento 01 de 04 · Julio 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>

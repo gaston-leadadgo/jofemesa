@@ -1,0 +1,19 @@
+# ─────────────────────────────────────────────────────────────
+# Sitio PÚBLICO · Presentación para JOFEMESA
+# Esta carpeta contiene UN SOLO documento: la presentación
+# del cliente, renombrada como index.html.
+# Es la carpeta cuyo enlace se puede compartir sin riesgo.
+# ─────────────────────────────────────────────────────────────
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Fuera de Google: es una propuesta comercial, no contenido público
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
